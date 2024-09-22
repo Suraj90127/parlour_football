@@ -134,7 +134,7 @@ export default function Home() {
         return gradients[randomIndex];
     };
 
-    const [isDepositVissible, showPopup] = useState(true);
+    const [isDepositVissible, showPopup] = useState(false);
 
     return (
         <Layout>
@@ -658,7 +658,6 @@ function FixedDeposit({ userBalance, closePopup }) {
                 />
                 <select
                     className="py-2 rounded-md"
-                    defaultValue={"select days"}
                     value={selectDuration}
                     onChange={(e) => updateDuration(e.target.value)}
                 >
