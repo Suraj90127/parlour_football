@@ -120,7 +120,7 @@ function Page() {
             if (!isValidTime) {
                 getAlert(
                     "opps",
-                    "you can withdraw from 10:00 AM to 17:00 PM UTC on working days i.e Monday to Saturday."
+                    "you can withdraw from 10:00 AM to 16:00 PM UTC on working days i.e Monday to Saturday."
                 );
                 return;
             }
@@ -274,32 +274,6 @@ function Page() {
                                     </span>
                                     <p className="capitalize  font-bold text-[0.65rem]">
                                         bank account
-                                    </p>
-                                </div>
-                                <div
-                                    className="flex  text-white rounded-full py-0.5 bg-gray-500/50 px-2 space-x-1
-              gap-x-2 items-center justify-end"
-                                >
-                                    <span className=" aspect-square relative flex justify-center items-center text-gray-600 rounded-full bg-gray-200  p-0.5 ">
-                                        {userOtherData?.UsdtBankAdded ===
-                                        true ? (
-                                            <Image
-                                                src={"/tick_mark.png"}
-                                                height={8}
-                                                width={8}
-                                                alt="added"
-                                            />
-                                        ) : (
-                                            <Image
-                                                src={"/wrong.png"}
-                                                height={8}
-                                                width={8}
-                                                alt="added"
-                                            />
-                                        )}
-                                    </span>
-                                    <p className="capitalize  font-bold text-[0.65rem]">
-                                        USDT account
                                     </p>
                                 </div>
                             </div>
@@ -462,38 +436,7 @@ function Page() {
                                     />
                                 </div>
                             </div>
-                            <div className="flex px-3 py-2  bg-white rounded-md items-center">
-                                <div className=" mr-2">
-                                    <svg
-                                        width="25"
-                                        height="25"
-                                        viewBox="0 0 25 25"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M14.6484 9.72266V7.2793H20.207V3.42383H4.77734V7.2793H10.3516V9.72266C5.68164 9.94727 2.17578 10.8848 2.17578 12.0078C2.17578 13.1309 5.67773 14.0625 10.3516 14.293V22.3574H14.6484V14.293C19.3184 14.0703 22.8242 13.1328 22.8242 12.0078C22.8242 10.8828 19.3223 9.94727 14.6484 9.72266ZM12.5 13.5625C7.44336 13.5625 3.34375 12.7812 3.34375 11.8398C3.34375 11.0293 6.33008 10.3496 10.3477 10.168V12.9277C11.0391 12.959 11.7578 12.9766 12.4961 12.9766C13.2344 12.9766 13.957 12.959 14.6445 12.9277V10.168C18.6621 10.3496 21.6484 11.0293 21.6484 11.8398C21.6562 12.791 17.5566 13.5625 12.5 13.5625Z"
-                                            fill="black"
-                                        />
-                                    </svg>
-                                </div>
-                                <div className="flex-[3] capitalize font-semibold text-[0.6rem]">
-                                    {" "}
-                                    USDT transfer
-                                </div>
-                                <div className="flex-[1] flex justify-end items-center">
-                                    <input
-                                        type="radio"
-                                        name="bank"
-                                        onChange={() =>
-                                            updateBank((prev) => !prev)
-                                        }
-                                        checked={!isLocalBank}
-                                        value={"usdt"}
-                                        className="size-5"
-                                    />
-                                </div>
-                            </div>
+                            
                         </div>
 
                         <div className=" px-2 mt-2">
@@ -505,7 +448,7 @@ function Page() {
                                                 transfer amount
                                             </span>
                                             <span className="w-[50%] pl-3">
-                                                after tax of 12%
+                                                after tax of 10%
                                             </span>
                                         </div>
                                     </div>
@@ -565,9 +508,6 @@ function Page() {
                                         <div className="flex mt-3 capitalize font-semibold text-[0.6rem] space-x-2 ">
                                             <span className="w-[50%]">
                                                 transfer amount
-                                            </span>
-                                            <span className="w-[50%] text-[0.5rem] px-3 text-gray-500">
-                                                USDT converted with 12% tax
                                             </span>
                                         </div>
                                     </div>
@@ -699,7 +639,7 @@ function Page() {
                                 </li>
                                 <li>
                                     During the specified time frame of 10:00 to
-                                    17:00, withdrawals will be processed. Please
+                                    16:00, withdrawals will be processed. Please
                                     note that the bank is closed on Sundays,
                                     hence withdrawals cannot be facilitated on
                                     that day.

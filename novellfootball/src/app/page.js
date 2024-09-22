@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { FaCirclePlus } from "react-icons/fa6";
+import { FaCirclePlus, FaLock } from "react-icons/fa6";
 import MatchCard from "./components/MatchCard";
 import { useContext, useState, useEffect } from "react";
-import { IoIosAdd } from "react-icons/io";
+import { IoIosAdd, IoIosArrowForward } from "react-icons/io";
 import { FaRupeeSign } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { Carousel } from "flowbite-react";
@@ -14,6 +14,8 @@ import { easeInOut, motion } from "framer-motion";
 import Loading from "./components/Loading";
 import { AlertContext } from "./helpers/AlertContext";
 import DemoCarousel from "./components/DemoCarousel";
+import { BsArrowRight, BsLock } from "react-icons/bs";
+import { duration } from "moment-timezone";
 
 export default function Home() {
     let router = useRouter();
@@ -132,9 +134,11 @@ export default function Home() {
         return gradients[randomIndex];
     };
 
+    const [isDepositVissible, showPopup] = useState(true);
+
     return (
         <Layout>
-            <main className="h-screen bg-no-repeat bg- bg-center bg-gradient-to-b from-[#F7B5CD] to-[#000] overflow-hidden  ">
+            <main className="h-screen bg-no-repeat bg- bg-center bg-gradient-to-b from-[#F7B5CD] to-[#00000063] overflow-hidden  ">
                 <div className="  flex justify-between place-items-center  w-[90%] mr-auto ml-auto   ">
                     <div className="w-max mt-2 flex flex-col justify-center  pt-2 ">
                         <div
@@ -147,7 +151,7 @@ export default function Home() {
                                 <FaRupeeSign />
                                 {Number(userBalance?.toFixed(2)) || 0}
                             </span>
-                            <FaCirclePlus className="text-[.9rem] mr-2 text-[#2885F6] " />
+                            <FaCirclePlus className="text-[.9rem] mr-2 text-[#333333] " />
                         </div>
 
                         <h1 className=" font-extrabold text-[1.3rem] text-[white] mt-3 text-center  ">
@@ -183,9 +187,27 @@ export default function Home() {
                 </div>
 
                 <div className="h-[60%] mt-[1rem] rounded-t-[30px]  shadow-2xl shadow-black  bg-[#F8FCFF]">
-                    <div className="h-[70px] rounded-t-[30px] flex flex-col justify-around  ">
-                        <div className="w-[70px] h-[5px]  mr-auto ml-auto rounded-2xl bg-gray-500 "></div>
-                        <div className="flex  justify-between w-[90%] mr-auto ml-auto  ">
+                    <div className=" py-3 rounded-t-[30px] flex flex-col justify-around  ">
+                        <div className="w-[70px] h-[5px] mr-auto ml-auto rounded-2xl bg-[#333333] "></div>
+                        <div className=" mt-3 h-8 w-full mr-auto px-4 ml-auto  ">
+                            <div
+                                onClick={() => showPopup(true)}
+                                style={{
+                                    background:
+                                        "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(247,181,205,1) 50%, rgba(255,255,255,1) 100%)",
+                                }}
+                                className=" py-2 w-full"
+                            >
+                                <div className="flex items-center justify-between px-1">
+                                    <div className="flex gap-1 items-center">
+                                        <FaLock />
+                                        <p>Fixed Deposit At High Return</p>
+                                    </div>
+                                    <IoIosArrowForward />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex mt-3 justify-between w-[90%] mr-auto ml-auto  ">
                             <h1 className="font-bold ">Hot Matches</h1>
                             <h1 className="flex text-[12px] font-light text-[#989898] line-clamp-1 text-ellipsis ">
                                 Online Users :{" "}
@@ -216,6 +238,17 @@ export default function Home() {
                             match={selectedMatch}
                             onClose={closePopup}
                         />
+                    )}
+                    {isDepositVissible && (
+                        <div
+                            onClick={() => showPopup(false)}
+                            className="absolute flex justify-center items-center z-10 top-0 left-0 h-full w-full bg-black/40"
+                        >
+                            <FixedDeposit
+                                closePopup={showPopup}
+                                userBalance={userBalance}
+                            />
+                        </div>
                     )}
                 </div>
 
@@ -555,6 +588,94 @@ function ScoreCards({
     );
 }
 
+function FixedDeposit({ userBalance, closePopup }) {
+    const router = useRouter();
+    const [selectDuration, updateDuration] = useState(30);
+    const { getBalance } = useContext(UserContext);
+    const [amount, updateAmount] = useState(0);
+    let { getAlert } = useContext(AlertContext);
+
+    const handleSubmit = async () => {
+        const percent = {
+            30: 3,
+            90: 5,
+            180: 7,
+        }[selectDuration];
+
+        getAlert();
+
+        if (!amount || !percent) return getAlert("opps", "choose some amount");
+
+        const response = await fetch("/api/fixedDeposit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ percent, amount, duration: selectDuration }),
+        });
+        const res = await response.json();
+        if (res?.status === 200) {
+            getAlert("success", res.message);
+            await getBalance();
+            closePopup(false);
+        } else if (res?.status === 302) {
+            getAlert("redirect", res.message);
+        } else {
+            getAlert("opps", res.message || "something went wrong");
+        }
+    };
+
+    return (
+        <div
+            onClick={(e) => e.stopPropagation()}
+            className="p-6 bg-white rounded-2xl"
+        >
+            <div
+                onClick={() => {
+                    router.push("/profile/recharge");
+                }}
+                className=" gap-6 flex overflow-visible place-items-center h-6 rounded-full bg-white w-max line-clamp-1 text-ellipsis   "
+            >
+                <span className="flex items-center   line-clamp-1 text-ellipsis text-[.65rem] font-bold px-2  min-w-[4rem] ">
+                    <FaRupeeSign />
+                    {Number(userBalance?.toFixed(2)) || 0}
+                </span>
+
+                <FaCirclePlus className="text-[3rem] mr-2 text-[#333333] " />
+                <div className="flex items-center">
+                    <span>Recharge</span>
+                    <IoIosArrowForward />
+                </div>
+            </div>
+
+            <div className="py-4 flex flex-col gap-4">
+                <input
+                    className="py-2 px-1 w-full text-gray-900 rounded-md"
+                    type="number"
+                    value={amount}
+                    onChange={(e) => updateAmount(e.target.value)}
+                    placeholder="Enter amount"
+                />
+                <select
+                    className="py-2 rounded-md"
+                    defaultValue={"select days"}
+                    value={selectDuration}
+                    onChange={(e) => updateDuration(e.target.value)}
+                >
+                    <option value={30}>30 days</option>
+                    <option value={90}>90 days</option>
+                    <option value={180}>180 days</option>
+                </select>
+            </div>
+            <div
+                onClick={handleSubmit}
+                className="text-center bg-pink-300 rounded-md py-2 text-white"
+            >
+                <button>Create fixed deposit</button>
+            </div>
+        </div>
+    );
+}
 // HOW TO USE THE COPY BUTTON
 
 // onClick={async (e) => {

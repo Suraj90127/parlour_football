@@ -19,7 +19,7 @@ const Page = () => {
     let { getAlert } = useContext(AlertContext);
     const [infoModel, updateInfoModel] = useState(false);
     const [claimModel, updateclaimModel] = useState(false);
-    const [isShairing, updateShairing] = useState(false);
+    const [isShairing, updateShairing] = useState(true);
     const [getCommissionPop, updateCommissionPop] = useState(false);
     const [popupType, updatePopupType] = useState("");
     const [todayCommission, updateTodayCommission] = useState([]);
@@ -220,7 +220,7 @@ const Page = () => {
                             </span>
                         </div>
                         <div
-                            onClick={() => updateShairing((prev) => !prev)}
+                            // onClick={() => updateShairing((prev) => !prev)}
                             className="absolute flex justify-center items-center text-3xl text-white -bottom-6 rounded-full left-[50%] translate-x-[-50%] size-12 bg-blue-500"
                         >
                             <MdOutlineShare />

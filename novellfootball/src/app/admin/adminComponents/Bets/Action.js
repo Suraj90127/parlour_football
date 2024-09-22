@@ -314,7 +314,7 @@ async function give_parent_bonus(
         })
     );
     let LEVEL = 1;
-    let REBADE_PERCENT = [10, 7, 3];
+    let REBADE_PERCENT = [7, 4, 1];
     try {
         while (LEVEL <= 3 && Parent !== false) {
             let parent_user = await USER.findOne({ UserName: Parent });

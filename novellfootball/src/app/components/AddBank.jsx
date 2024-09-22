@@ -173,36 +173,7 @@ const AddBank = ({ closePopup, localEditable, usdtEditable , isUpdatingBank }) =
               />
             </div>
           </div>
-          <div className="flex px-3 py-2 shadow-sm bg-white rounded-md items-center">
-            <div className=" mr-2">
-              <svg
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14.6484 9.72266V7.2793H20.207V3.42383H4.77734V7.2793H10.3516V9.72266C5.68164 9.94727 2.17578 10.8848 2.17578 12.0078C2.17578 13.1309 5.67773 14.0625 10.3516 14.293V22.3574H14.6484V14.293C19.3184 14.0703 22.8242 13.1328 22.8242 12.0078C22.8242 10.8828 19.3223 9.94727 14.6484 9.72266ZM12.5 13.5625C7.44336 13.5625 3.34375 12.7812 3.34375 11.8398C3.34375 11.0293 6.33008 10.3496 10.3477 10.168V12.9277C11.0391 12.959 11.7578 12.9766 12.4961 12.9766C13.2344 12.9766 13.957 12.959 14.6445 12.9277V10.168C18.6621 10.3496 21.6484 11.0293 21.6484 11.8398C21.6562 12.791 17.5566 13.5625 12.5 13.5625Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
-            <div className="flex-[3] capitalize font-semibold text-[0.6rem]">
-              {" "}
-              USDT transfer
-            </div>
-            <div className="flex-[1] flex justify-end items-center">
-              <input
-                type="radio"
-                name="Editbank"
-                onChange={() => updateBank((prev) => !prev)}
-                checked={!isLocalBank}
-                value={"usdt"}
-                className="size-5"
-              />
-            </div>
-          </div>
+      
         </div>
         <div className="mt-2 px-5 capitalize font-extrabold text-sm">
           <p>please fill bank details :-</p>

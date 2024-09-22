@@ -301,7 +301,7 @@ const Signup = () => {
                     fill
                     style={{ objectFit: "cover" }}
                     alt="background"
-                    src={"/signup_bg.png"}
+                    src={"/login_bg.jpg"}
                 />
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -397,7 +397,9 @@ const Signup = () => {
                                     country={"in"}
                                     disabled={isDisabled}
                                     value={credentials?.Phone}
-                                    className=" border-blue-600"
+                                    containerStyle={{
+                                        border: "2px solid #f7b5cd",
+                                    }}
                                     inputProps={{
                                         name: "Phone",
                                         required: !isInternational,
@@ -547,7 +549,7 @@ const Signup = () => {
                                 </span>
                             </label>
                             <label
-                                className="mt-px text-[0.6rem] font-medium text-gray-900 cursor-pointer select-none"
+                                className="mt-px text-[0.6rem] font-medium text-slate-300 cursor-pointer select-none"
                                 htmlFor="check"
                             >
                                 By creating an account, I hereby confirm that I
@@ -566,7 +568,7 @@ const Signup = () => {
                     </motion.div>
                 </motion.form>
 
-                <p className="mt-2 text-center font-semibold text-sm">
+                <p className="mt-2 text-white text-center font-semibold text-sm">
                     <a
                         href="/access/login"
                         className="font-semibold leading-6 hover:text-blue-800"

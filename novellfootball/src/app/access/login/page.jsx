@@ -61,9 +61,9 @@ const Login = () => {
 
     return (
         <>
-            <div className="flex relative min-h-screen  flex-col justify-end px-6 pb-[8rem] lg:px-8">
+            <div className="flex text-white relative min-h-screen  flex-col justify-end px-6 pb-[8rem] lg:px-8">
                 <div className="absolute top-0 left-0 z-[-1]  h-full w-full">
-                    <Image fill alt="company logo" src={"/login_bg.png"} />
+                    <Image fill alt="company logo" src={"/login_bg.jpg"} />
                 </div>
                 <div className="sm:mx-auto pt-0 sm:w-full sm:max-w-sm">
                     <Image
@@ -137,7 +137,7 @@ const Login = () => {
                         <div>
                             <button
                                 type="submit"
-                                className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-[0.6rem] font-semibold leading-6 text-white shadow-sm hover:bg-blue-400 "
+                                className="flex w-full justify-center rounded-md bg-[#f7b5cd] px-3 py-[0.6rem] font-semibold leading-6 text-white shadow-sm hover:bg-blue-400 "
                             >
                                 Login
                             </button>

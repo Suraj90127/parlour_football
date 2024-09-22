@@ -144,37 +144,6 @@ function Page() {
                             </h2>
                         </div>
 
-                        <div className="w-full mt-1  px-4">
-                            <div className="rounded-full bg-white py-0.5 flex justify-between">
-                                <div className="flex px-2 space-x-1 items-center">
-                                    <Image
-                                        alt="logo"
-                                        src={
-                                            vipInfo?.img
-                                                ? `/vip${vipInfo?.img}`
-                                                : "/logo.png"
-                                        }
-                                        height={20}
-                                        width={20}
-                                    ></Image>
-                                    <p className="capitalize text-gray-600 font-bold text-[0.65rem]">
-                                        {vipInfo?.Vip} member
-                                    </p>
-                                </div>
-                                <div
-                                    onClick={() => router.push("/profile/vip")}
-                                    className="flex pr-2 flex-row-reverse  space-x-1
-              gap-x-2 items-center justify-end"
-                                >
-                                    <span className=" aspect-square relative flex justify-center items-center rounded-full bg-gray-200 text-gray-500 p-1">
-                                        <LiaAngleRightSolid className="text-[0.6rem]" />
-                                    </span>
-                                    <p className="capitalize text-gray-600 font-bold text-[0.65rem]">
-                                        see membership
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
                         <div
                             onClick={() => updateRecord(true)}
@@ -353,23 +322,6 @@ function Page() {
                                 <LiaAngleRightSolid />
                             </div>
                         </div> */}
-                        <div
-                            onClick={() => router.push("/luckyDraw")}
-                            style={{
-                                boxShadow: "0px 2px 8px 1px rgb(0,0,0,0.1) ",
-                            }}
-                            className="flex  items-center py-2  rounded-[19px] bg-[#fff]  px-2"
-                        >
-                            <div className="h-full w-full flex justify-center items-center flex-[1]">
-                                <IoGameControllerOutline size={24} />
-                            </div>
-                            <div className="h-full w-full flex-[4] capitalize font-bold text-[0.75rem]">
-                                lucky wheel
-                            </div>
-                            <div className="h-full w-full flex justify-center items-center flex-[1]">
-                                <LiaAngleRightSolid />
-                            </div>
-                        </div>
 
                         <div
                             onClick={() => router.push("/profile/help")}
