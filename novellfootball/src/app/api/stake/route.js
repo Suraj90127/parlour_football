@@ -7,7 +7,7 @@ import CustomError from "@/app/helpers/Error";
 import mongoose, { get } from "mongoose";
 import { cookies } from "next/headers";
 import ErrorReport from "@/app/helpers/ErrorReport";
-import { settleFixDesposit } from "@/app/helpers/SettleFixDeposit";
+import { settleFixDeposit } from "@/app/helpers/SettleFixDeposit";
 
 export async function GET(request) {
     let { session, token } = await getCookieData();
@@ -20,7 +20,7 @@ export async function GET(request) {
         let pendingMatches = await BET.find({ UserName, Status: 0 });
         let settledMatches = await BET.find({ UserName, Status: { $ne: 0 } });
 
-        await settleFixDesposit(UserName);
+        await settleFixDeposit(UserName);
 
         return NextResponse.json({
             status: 200,

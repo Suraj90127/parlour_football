@@ -182,6 +182,16 @@ const Page = () => {
         }
     }, [RegisterData, TransactionData, commissionData]);
 
+    const [invitationLink, setInvitationLink] = useState("");
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setInvitationLink(
+                `${window.location.origin}/access/signup?id=${userOtherData?.InvitationCode}`
+            );
+        }
+    }, [userOtherData?.InvitationCode]);
+
     return (
         <Layout>
             <section className=" bg-[#F8FCFF] w-full relative h-[100dvh]">
@@ -267,13 +277,12 @@ const Page = () => {
                                     <FaLink />
                                 </span>
                                 <p className=" w-[80%] text-gray-600 truncate text-[0.6rem] px-1 rounded-md">
-                                    {window.location.origin}/access/signup?id=
-                                    {userOtherData?.InvitationCode}
+                                    {invitationLink}
                                 </p>
                                 <span
                                     onClick={async (e) => {
                                         let isCopied = await Copy(
-                                            `${window.location.origin}/access/signup?id=${userOtherData?.InvitationCode}`
+                                            invitationLink
                                         );
                                         getAlert(
                                             isCopied ? "success" : "opps",
