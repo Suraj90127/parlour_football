@@ -594,15 +594,23 @@ function FixedDeposit({ userBalance, closePopup }) {
     const router = useRouter();
     const [selectDuration, updateDuration] = useState(30);
     const { getBalance } = useContext(UserContext);
-    const [amount, updateAmount] = useState(0);
+    const [amount, updateAmount] = useState();
     let { getAlert } = useContext(AlertContext);
+    const Percent = {
+        30: 3,
+        90: 5,
+        180: 7,
+    };
+
+    const calculateCompoundInterest = (principal, rate, time) => {
+        if (!principal || !rate || !time) return 0;
+        return Intl.NumberFormat().format(
+            (principal * Math.pow(1 + rate / 100, time)).toFixed(2)
+        );
+    };
 
     const handleSubmit = async () => {
-        const percent = {
-            30: 3,
-            90: 5,
-            180: 7,
-        }[selectDuration];
+        const percent = Percent[selectDuration];
 
         getAlert();
 
@@ -636,37 +644,72 @@ function FixedDeposit({ userBalance, closePopup }) {
                 onClick={() => {
                     router.push("/profile/recharge");
                 }}
-                className=" gap-6 flex overflow-visible place-items-center h-6 rounded-full bg-white w-max line-clamp-1 text-ellipsis   "
+                className=" gap-6 flex justify-center overflow-visible place-items-center h-6 rounded-full bg-white w-max line-clamp-1 text-ellipsis   "
             >
-                <span className="flex items-center   line-clamp-1 text-ellipsis text-[.65rem] font-bold px-2  min-w-[4rem] ">
+                <span className="flex items-center line-clamp-1 text-ellipsis text-[.65rem] font-bold px-2 ">
                     <FaRupeeSign />
                     {Number(userBalance?.toFixed(2)) || 0}
                 </span>
 
                 <FaCirclePlus className="text-[3rem] mr-2 text-[#333333] " />
                 <div className="flex items-center">
-                    <span>Recharge</span>
+                    <span className="text-sm">Recharge</span>
                     <IoIosArrowForward />
                 </div>
             </div>
-
-            <div className="py-4 flex flex-col gap-4">
+            <div className="mt-6 grid grid-cols-2 gap-1 text-white grid-rows-2">
+                <button
+                    onClick={() => updateAmount(500)}
+                    className="bg-gray-600 rounded-md"
+                >
+                    500
+                </button>
+                <button
+                    onClick={() => updateAmount(1000)}
+                    className="bg-gray-600 rounded-md"
+                >
+                    1000
+                </button>
+                <button
+                    onClick={() => updateAmount(1500)}
+                    className="bg-gray-600 rounded-md"
+                >
+                    1500
+                </button>
+                <button
+                    onClick={() => updateAmount(2000)}
+                    className="bg-gray-600 rounded-md"
+                >
+                    2000
+                </button>
+            </div>
+            <div className="py-4 mt-2 flex flex-col gap-4">
                 <input
-                    className="py-2 px-1 w-full text-gray-900 rounded-md"
+                    className="py-2 px-4 w-full border-pink-300 border-2 text-gray-900 rounded-md"
                     type="number"
                     value={amount}
                     onChange={(e) => updateAmount(e.target.value)}
                     placeholder="Enter amount"
                 />
                 <select
-                    className="py-2 rounded-md"
+                    className="py-2 px-3 border-pink-300 border-2 rounded-md"
                     value={selectDuration}
                     onChange={(e) => updateDuration(e.target.value)}
                 >
-                    <option value={30}>30 days</option>
-                    <option value={90}>90 days</option>
-                    <option value={180}>180 days</option>
+                    <option value={30}>30 days @3%</option>
+                    <option value={90}>90 days @5%</option>
+                    <option value={180}>180 days @7%</option>
                 </select>
+            </div>
+            <div className="pb-3 px-1 text-sm">
+                <span>
+                    F.D. return ={" "}
+                    {calculateCompoundInterest(
+                        amount,
+                        Percent[selectDuration],
+                        selectDuration
+                    )}
+                </span>
             </div>
             <div
                 onClick={handleSubmit}
