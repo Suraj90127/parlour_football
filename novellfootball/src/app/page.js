@@ -198,10 +198,12 @@ export default function Home() {
                                 }}
                                 className=" py-2 w-full"
                             >
-                                <div className="flex items-center justify-between px-1">
+                                <div className="flex items-center justify-between px-4">
                                     <div className="flex gap-1 items-center">
                                         <FaLock />
-                                        <p>Fixed Deposit At High Return</p>
+                                        <p className="text-sm pl-2">
+                                            Fixed Deposit At High Return
+                                        </p>
                                     </div>
                                     <IoIosArrowForward />
                                 </div>

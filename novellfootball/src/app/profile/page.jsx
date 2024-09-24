@@ -144,7 +144,6 @@ function Page() {
                             </h2>
                         </div>
 
-
                         <div
                             onClick={() => updateRecord(true)}
                             className="absolute top-4 left-4 "
@@ -185,7 +184,7 @@ function Page() {
                             <div className="flex pl-1 justify-center items-center space-x-1">
                                 <span
                                     className=" h-full aspect-square rounded-full text-white 
-             bg-blue-500 flex text-[0.8rem] p-1 justify-center items-center"
+             bg-[#333333] flex text-[0.8rem] p-1 justify-center items-center"
                                 >
                                     <FaRupeeSign />
                                 </span>
@@ -211,7 +210,7 @@ function Page() {
                                 </span>
                             </div>
 
-                            <div className=" absolute h-[140%] bg-pink-400 rounded-full text-white left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] aspect-square flex text-lg justify-center items-center">
+                            <div className=" absolute h-[140%] bg-[#333333] rounded-full text-white left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] aspect-square flex text-lg justify-center items-center">
                                 <FaPlus />
                             </div>
                         </div>

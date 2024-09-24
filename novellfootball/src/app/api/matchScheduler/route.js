@@ -70,7 +70,6 @@ export async function scheduleMatches() {
         );
         if (res) {
             res = await res.json();
-
             if (!res?.response) return false;
             let data = [];
 

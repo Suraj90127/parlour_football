@@ -61,17 +61,17 @@ const Login = () => {
 
     return (
         <>
-            <div className="flex text-white relative min-h-screen  flex-col justify-end px-6 pb-[8rem] lg:px-8">
+            <div className="flex text-white relative min-h-screen  flex-col justify-center px-6 pb-[8rem] lg:px-8">
                 <div className="absolute top-0 left-0 z-[-1]  h-full w-full">
                     <Image fill alt="company logo" src={"/login_bg.jpg"} />
                 </div>
                 <div className="sm:mx-auto pt-0 sm:w-full sm:max-w-sm">
                     <Image
-                        className="mx-auto w-auto"
+                        className="mx-auto"
                         src={"/logo.png"}
-                        height={150}
-                        width={150}
-                        alt="Norvell football"
+                        height={120}
+                        width={130}
+                        alt="parlour football"
                     />
                     <h2 className=" text-center text-md font-bold leading-9 tracking-tight to-blue-500 uppercase">
                         Welcome back
@@ -106,7 +106,7 @@ const Login = () => {
                                 <div className="flex items-center justify-between">
                                     <label
                                         htmlFor="password"
-                                        className="block text-sm font-bold leading-6 text-black"
+                                        className="block text-sm font-bold leading-6 text-white"
                                     >
                                         Password
                                     </label>

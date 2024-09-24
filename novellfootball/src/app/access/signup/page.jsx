@@ -304,7 +304,7 @@ const Signup = () => {
                     src={"/login_bg.jpg"}
                 />
             </div>
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="mt-10 text-white sm:mx-auto sm:w-full sm:max-w-sm">
                 <motion.form onSubmit={sendData} className="space-y-3">
                     <motion.div
                         initial="hidden"
