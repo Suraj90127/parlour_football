@@ -19,13 +19,14 @@ export async function GET(request) {
         await connect();
         let pendingMatches = await BET.find({ UserName, Status: 0 });
         let settledMatches = await BET.find({ UserName, Status: { $ne: 0 } });
+        let fixedDeposits = await FIXEDDEPOST.find({ UserName });
 
         await settleFixDeposit(UserName);
 
         return NextResponse.json({
             status: 200,
             message: "",
-            data: { pendingMatches, settledMatches },
+            data: { pendingMatches, settledMatches, fixedDeposits },
         });
     } catch (error) {
         if (error?.code === 500 || error?.status === 500 || !error?.status) {

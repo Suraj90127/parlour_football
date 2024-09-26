@@ -21,7 +21,7 @@ const Page = () => {
                 <Back page={"get help"} />
                 <main className=" h-full space-y-1  px-4 ">
                     <div className="h-[50%] relative w-full">
-                        <Image src={"/get_help_svg.svg"} fill alt="get help" />
+                        <Image src={"/get_help.jpg"} width={400} height={200} alt="get help" />
                     </div>
                     <div className="h-[50%]  overflow-y-auto px-1 space-y-3 pb-40">
                         <div
@@ -215,7 +215,7 @@ const Page = () => {
                         </div>
 
                         <a
-                            href={"/downloads/Norvell-football.pdf"}
+                            href={"/downloads/Parlour-Football.pdf"}
                             download={"norvellfootball.pdf"}
                         >
                             <div
@@ -230,7 +230,7 @@ const Page = () => {
                                     </span>
                                 </div>
                                 <div className="flex-[4]">
-                                    <p>Norvell Football Pdf </p>
+                                    <p>Parlour Football Pdf </p>
                                 </div>
                                 <div className="flex-[1] flex justify-center items-center">
                                     <span className="h-full rounded-full bg-gray-200 text-white p-0.5">

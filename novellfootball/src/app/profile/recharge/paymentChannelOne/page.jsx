@@ -13,18 +13,6 @@ import { useRouter } from "next/navigation";
 import { Copy } from "@/app/helpers/Copy";
 import { UpiRedirect } from "@/app/helpers/UpiRedirect";
 
-const accorodient = {
-    show: {
-        height: "18vh",
-        opacity: 1,
-        duration: 1,
-    },
-    hide: {
-        height: "0rem",
-        opacity: 0,
-        duration: 0,
-    },
-};
 
 function Page() {
     // Popup handling here //

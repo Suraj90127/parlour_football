@@ -597,9 +597,9 @@ function FixedDeposit({ userBalance, closePopup }) {
     const [amount, updateAmount] = useState();
     let { getAlert } = useContext(AlertContext);
     const Percent = {
-        30: 3,
-        90: 5,
-        180: 7,
+        30: 1.5,
+        90: 2.5,
+        180: 3.5,
     };
 
     const calculateCompoundInterest = (principal, rate, time) => {
@@ -696,9 +696,9 @@ function FixedDeposit({ userBalance, closePopup }) {
                     value={selectDuration}
                     onChange={(e) => updateDuration(e.target.value)}
                 >
-                    <option value={30}>30 days @3%</option>
-                    <option value={90}>90 days @5%</option>
-                    <option value={180}>180 days @7%</option>
+                    <option value={30}>30 days @1.5%</option>
+                    <option value={90}>90 days @1.5%</option>
+                    <option value={180}>180 days @3.5%</option>
                 </select>
             </div>
             <div className="pb-3 px-1 text-sm">

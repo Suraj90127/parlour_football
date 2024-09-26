@@ -115,7 +115,7 @@ function Page() {
                     {/* hero section */}
                     <div
                         style={{
-                            background: "url(/profileBg.png) center no-repeat",
+                            background: "url(/profileBg.jpg) center no-repeat",
                             backgroundSize: "cover",
                         }}
                         className=" h-[65%] py-4  w-full relative 

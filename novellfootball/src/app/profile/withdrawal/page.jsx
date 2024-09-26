@@ -220,7 +220,7 @@ function Page() {
                     <div
                         style={{
                             background:
-                                "url(/withdrawalBg.jpg) center no-repeat",
+                                "url(/profileBg.jpg) center no-repeat",
                             backgroundSize: "cover",
                         }}
                         className=" h-[65%] py-4  relative w-full  
@@ -316,7 +316,7 @@ function Page() {
                                     );
                                 }
                             }}
-                            className=" absolute h-[30%] bg-blue-500 rounded-full text-white left-[50%] translate-x-[-50%] top-[100%] translate-y-[-50%] aspect-square flex text-[2rem] justify-center items-center"
+                            className=" absolute h-[30%] bg-[#333333] rounded-full text-white left-[50%] translate-x-[-50%] top-[100%] translate-y-[-50%] aspect-square flex text-[2rem] justify-center items-center"
                         >
                             <FaPlus />
                         </div>
@@ -327,7 +327,7 @@ function Page() {
                             <div className="flex pl-1 bg-slate-50 ring-1 ring-gray-200 rounded-full p-0.5 justify-center items-center px-1 space-x-1">
                                 <span
                                     className=" h-full aspect-square rounded-full text-white 
-             bg-blue-500 flex text-[0.7rem] p-0.5 justify-center items-center"
+             bg-[#333333] flex text-[0.7rem] p-0.5 justify-center items-center"
                                 >
                                     <FaRupeeSign />
                                 </span>
@@ -343,7 +343,7 @@ function Page() {
                                         router.push("/profile/recharge")
                                     }
                                     className=" h-full aspect-square rounded-full text-white 
-             bg-blue-500 flex text-[0.8rem] p-0.5 justify-center items-center"
+                                    bg-[#333333] flex text-[0.8rem] p-0.5 justify-center items-center"
                                 >
                                     <FaPlus />
                                 </span>
@@ -457,7 +457,7 @@ function Page() {
                                             <div className=" flex w-[50%] space-x-2 px-2">
                                                 <span
                                                     className=" h-full aspect-square rounded-full text-white 
-           bg-blue-500 flex text-[0.7rem] p-1 justify-center items-center"
+           bg-[#333333] flex text-[0.7rem] p-1 justify-center items-center"
                                                 >
                                                     <FaRupeeSign />
                                                 </span>
@@ -476,7 +476,7 @@ function Page() {
                                             <div className=" flex w-[50%] space-x-2 px-2">
                                                 <span
                                                     className=" h-full aspect-square rounded-full text-white 
-           bg-blue-500 flex text-[0.7rem] p-1 justify-center items-center"
+           bg-[#333333] flex text-[0.7rem] p-1 justify-center items-center"
                                                 >
                                                     <FaRupeeSign />
                                                 </span>
@@ -516,7 +516,7 @@ function Page() {
                                             <div className=" flex w-[50%] space-x-2 px-2">
                                                 <span
                                                     className=" h-full aspect-square rounded-full text-white 
-                        bg-blue-500 flex text-[0.7rem] p-1 justify-center items-center"
+                        bg-[#333333] flex text-[0.7rem] p-1 justify-center items-center"
                                                 >
                                                     <FaRupeeSign />
                                                 </span>
@@ -617,7 +617,7 @@ function Page() {
                         <div className="px-2 py-1">
                             <button
                                 onClick={withdraw}
-                                className="w-full capitalize rounded-md mt-4 shadow-md bg-blue-500 text-white font-bold py-2 "
+                                className="w-full capitalize rounded-md mt-4 shadow-md bg-[#f7b5cd] text-white font-bold py-2 "
                             >
                                 transfer to bank
                             </button>

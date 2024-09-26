@@ -130,7 +130,7 @@ function Page() {
               <p className="font-[500] text-[#000000d3] ">
                 Order <span># {Math.floor(Math.random()*100000)}</span>
               </p>
-              <p className="font-light text-[gray] ">Norvell</p>
+              <p className="font-light text-[gray] ">Parlour</p>
             </div>
             <div>
               <Suspense>
