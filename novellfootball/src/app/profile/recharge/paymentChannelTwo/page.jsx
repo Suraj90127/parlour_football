@@ -138,10 +138,7 @@ function Page() {
                         Paytm, phonepe, googlepay, other bank
                     </p>
                     <div className="grid grid-cols-2 gap-3 w-[90%] mr-auto ml-auto p-2 mt-2  text-[.75rem] ">
-                        <div className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
-                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
-                                <Image
-                                    onClick={() =>
+                        <div   onClick={() =>
                                         UpiRedirect(
                                             amount,
                                             upiId[
@@ -151,7 +148,10 @@ function Page() {
                                                 )
                                             ]
                                         )
-                                    }
+                                    } 
+                        className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
+                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
+                                <Image
                                     src={"/paytm.png"}
                                     alt="paytm"
                                     width={40}
@@ -162,10 +162,7 @@ function Page() {
                             <span>Paytm</span>
                         </div>
 
-                        <div className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
-                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
-                                <Image
-                                    onClick={() =>
+                        <div onClick={() =>
                                         UpiRedirect(
                                             amount,
                                             upiId[
@@ -175,7 +172,10 @@ function Page() {
                                                 )
                                             ]
                                         )
-                                    }
+                                    } className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
+                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
+                                <Image
+                                    
                                     src={"/GooglePay.svg"}
                                     alt="paytm"
                                     width={40}
@@ -186,10 +186,7 @@ function Page() {
                             <span>Google pay</span>
                         </div>
 
-                        <div className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
-                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
-                                <Image
-                                    onClick={() =>
+                        <div  onClick={() =>
                                         UpiRedirect(
                                             amount,
                                             upiId[
@@ -199,7 +196,10 @@ function Page() {
                                                 )
                                             ]
                                         )
-                                    }
+                                    } className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
+                            <div className="h-[3rem] w-[3rem] grid place-items-center  ">
+                                <Image
+                                   
                                     src={"/phonePay.svg"}
                                     alt="paytm"
                                     width={40}
@@ -210,7 +210,17 @@ function Page() {
                             <span>Phonepe</span>
                         </div>
 
-                        <div className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
+                        <div  onClick={() =>
+                                        UpiRedirect(
+                                            amount,
+                                            upiId[
+                                                Math.floor(
+                                                    Math.random() *
+                                                        upiId?.length
+                                                )
+                                            ]
+                                        )
+                                    } className="flex rounded-lg place-items-center  border-2 border-[lightgray] ">
                             <div className="h-[3rem] w-[3rem] grid place-items-center  ">
                                 <Image
                                     onClick={() =>
