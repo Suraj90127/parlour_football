@@ -560,7 +560,7 @@ const Signup = () => {
                         <motion.div variants={itemVariants2}>
                             <button
                                 type="submit"
-                                className="flex my-6 w-full justify-center rounded-md bg-blue-500 px-3 py-[0.6rem] font-semibold leading-6 text-white capitalize shadow-sm hover:bg-blue-400 "
+                                className="flex my-6 w-full justify-center rounded-md bg-[#f7b5cd] px-3 py-[0.6rem] font-semibold leading-6 text-white capitalize shadow-sm "
                             >
                                 create new account
                             </button>
@@ -571,7 +571,7 @@ const Signup = () => {
                 <p className="mt-2 text-white text-center font-semibold text-sm">
                     <a
                         href="/access/login"
-                        className="font-semibold leading-6 hover:text-blue-800"
+                        className="font-semibold leading-6"
                     >
                         Login
                     </a>

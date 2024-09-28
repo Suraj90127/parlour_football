@@ -51,6 +51,12 @@ const localBank = [
     type: "text",
     label: "bank branch",
   },
+  {
+    name: "WithdrawCode",
+    alt: "Withdrawal code",
+    type: "text",
+    label: "Withdrawal code",
+  },
 ];
 
 const AddBank = ({ closePopup, localEditable, usdtEditable , isUpdatingBank }) => {
@@ -62,6 +68,7 @@ const AddBank = ({ closePopup, localEditable, usdtEditable , isUpdatingBank }) =
     AccNumber: "",
     Ifsc: "",
     BranchName: "",
+    WithdrawCode: ''
   });
   const [usdtBankCredentials, updateUsdtBank] = useState({
     UsdtAddress: "",
@@ -229,7 +236,7 @@ const AddBank = ({ closePopup, localEditable, usdtEditable , isUpdatingBank }) =
         <div className="px-5 mt-8">
           <button
             onClick={sendNewBankData}
-            className=" rounded-md text-white font-bold tracking-wider capitalize w-full py-3 bg-blue-500"
+            className=" rounded-md text-white font-bold tracking-wider capitalize w-full py-3 bg-pink-300"
           >
             save my bank details
           </button>

@@ -615,7 +615,8 @@ function FixedDeposit({ userBalance, closePopup }) {
         getAlert();
 
         if (!amount || !percent) return getAlert("opps", "choose some amount");
-
+        if (amount < 500) return getAlert('opps', 'Minimum F.D. amount is 500.')
+        
         const response = await fetch("/api/fixedDeposit", {
             method: "POST",
             headers: {

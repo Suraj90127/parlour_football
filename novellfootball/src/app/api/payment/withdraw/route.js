@@ -30,18 +30,20 @@ export async function POST(request) {
             });
 
         let body = await request.json();
-        let { Amount } = body;
+        let { Amount, WithdrawCode } = body;
         if (!(await validateTime()))
             throw new CustomError(
                 705,
-                "you can withdraw from 10:00 AM to 17:00 PM UTC on working days i.e Monday to Saturday."
+                "you can withdraw from 10:00 AM to 16:00 PM UTC on working days i.e Monday to Saturday."
             );
 
         if (!Amount) throw new CustomError(705, "Enter a valid amount", {});
         Amount = Number(Amount);
-        if (!(await vipVerified(UserName, body?.Amount)))
-            throw new CustomError(705, "Your vip level is low", {});
-        if (!Amount) throw new CustomError(705, "Missing Fields", {});
+
+        // if (!(await vipVerified(UserName, body?.Amount)))
+        //     throw new CustomError(705, "Your vip level is low", {});
+        
+            if (!Amount) throw new CustomError(705, "Missing Fields", {});
         Amount = Amount * 100;
 
         // check if the transaction already exists;
@@ -63,12 +65,14 @@ export async function POST(request) {
                 "you have reached withdrawal limit for today",
                 {}
             );
+        
         if (body?.isLocalBank) {
             let updatedUser = await updateUser(
                 UserName,
                 Amount,
                 Session,
-                "LocalBankAdded"
+                "LocalBankAdded",
+                WithdrawCode
             );
 
             if (!updatedUser)
@@ -78,7 +82,8 @@ export async function POST(request) {
                 UserName,
                 Amount,
                 Session,
-                "UsdtBankAdded"
+                "UsdtBankAdded",
+                WithdrawCode
             );
 
             if (!updatedUser)
@@ -140,11 +145,11 @@ export async function POST(request) {
     }
 }
 
-async function updateUser(UserName, Amount, Session, Bank) {
+async function updateUser(UserName, Amount, Session, Bank, WithdrawCode) {
     await connect();
     try {
         let user = await USER.findOneAndUpdate(
-            { UserName, [Bank]: true, Balance: { $gte: Number(Amount) } },
+            { UserName, [Bank]: true, Balance: { $gte: Number(Amount) }, 'LocalBank.WithdrawCode': WithdrawCode },
             {
                 $inc: {
                     Balance: -Amount,
@@ -153,7 +158,7 @@ async function updateUser(UserName, Amount, Session, Bank) {
             },
             { session: Session }
         );
-        if (!user) throw Error("Low balance");
+        if (!user) throw Error("Low balance or wrong withdrawal code");
         parent = user?.Parent;
         return true;
     } catch (error) {
@@ -215,8 +220,8 @@ async function validateTime() {
     const currentDay = Number(currentDate.getDay()); // Sunday is 0, Monday is 1, ..., Saturday is 6
     const currentHour = Number(currentDate.getHours());
 
-    // Check if it's Sunday or outside the working hours (10 am to 5 pm)
-    if (currentDay === 0 || currentHour < 10 || currentHour >= 17) {
+    // Check if it's Sunday or outside the working hours (10 am to 4 pm)
+    if (currentDay === 0 || currentHour < 10 || currentHour >= 16) {
         return false;
     }
 

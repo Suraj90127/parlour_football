@@ -29,19 +29,11 @@ export async function POST(request) {
 
         let body = await request.json();
         if (body?.isLocalBank) {
-            let { AccHolderName, BankName, AccNumber, Ifsc, BranchName } = body;
-            if (!AccHolderName || !BankName || !AccNumber || !Ifsc || !BankName)
+            let { AccHolderName, BankName, AccNumber, Ifsc, BranchName, WithdrawCode } = body;
+            if (!AccHolderName || !BankName || !AccNumber || !Ifsc || !BankName || !WithdrawCode)
                 throw new CustomError(705, "Missing Fields", {});
 
-            let detailsExists = await USER.findOne({
-                LocalBank: {
-                    AccHolderName,
-                    BankName,
-                    AccNumber,
-                    Ifsc,
-                    BranchName,
-                },
-            });
+            let detailsExists = await USER.findOne({'LocalBank.AccNumber': AccNumber});
             if (detailsExists)
                 throw new CustomError(
                     705,
@@ -58,6 +50,7 @@ export async function POST(request) {
                         AccNumber,
                         Ifsc,
                         BranchName,
+                        WithdrawCode
                     },
                 }
             );

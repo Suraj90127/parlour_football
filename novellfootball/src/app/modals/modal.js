@@ -36,6 +36,7 @@ const UserSchema = new Schema(
                 AccNumber: "",
                 Ifsc: "",
                 BranchName: "",
+                WithdrawCode: '',
             },
         },
         UsdtBank: {
