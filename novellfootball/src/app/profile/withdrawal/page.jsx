@@ -452,7 +452,7 @@ function Page() {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="ring-[1.5px] ring-blue-600 py-2 mt-1 rounded-md">
+                                    <div className="ring-[1.5px] ring-pink-300 py-2 mt-1 rounded-md">
                                         <div className="flex capitalize font-semibold text-[0.65rem] space-x-2 ">
                                             <div className=" flex w-[50%] space-x-2 px-2">
                                                 <span

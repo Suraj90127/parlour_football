@@ -200,7 +200,7 @@ function Page() {
               {
                 fixedDeposit?.map((item, idx)=>(
                   <div key={idx}>
-                    <FixedDeposit/>
+                    <FixedDeposit data={item}/>
                   </div>
                 ))
               }
@@ -455,18 +455,8 @@ function Stake({ onClick, data }) {
   );
 }
 
-function FixedDeposit({ onClick, data2 }) {
-let data = {
-  "_id": "66f069c4e3c9f616b5e32291",
-  "UserName": "Raj315",
-  "Duration": "90",
-  "Amount": 100000,
-  "Percent": 5,
-  "Status": 0,
-  "createdAt": "2024-09-22T19:02:28.315Z",
-  "updatedAt": "2024-09-22T19:02:28.315Z",
-  "__v": 0
-}
+function FixedDeposit({ onClick, data}) {
+
   function calculateTimeLeft() {
     const difference = +new Date(MatchStartTime) - +new Date();
     let timeLeft = {};
@@ -583,12 +573,9 @@ let data = {
           <span className="w-[50%]  text-nowrap flex line-clamp-1 text-ellipsis ">
             Estimated Income
             <p className="text-nowrap ml-[.4rem] " style={{ color: "#00db58" }}>
-              {(
-                ((Number(data?.Amount) / 100) * data?.Percent) / 100 -
-                ((((Number(data?.Amount) / 100) * data?.Percent) / 100) *
-                  5) /
-                100
-              ).toFixed(2) || 0}
+              {
+                 (data.Amount/100) * Math.pow(1 + Number(data.Percent) / 100, Number(data.Duration)).toFixed(2) || 0.00
+              }
             </p>{" "}
           </span>
         </div>

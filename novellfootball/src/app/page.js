@@ -644,7 +644,7 @@ function FixedDeposit({ userBalance, closePopup }) {
                 onClick={() => {
                     router.push("/profile/recharge");
                 }}
-                className=" gap-6 flex justify-center overflow-visible place-items-center h-6 rounded-full bg-white w-max line-clamp-1 text-ellipsis   "
+                className=" gap-6 relative flex justify-between overflow-visible place-items-center h-6 rounded-full bg-white w-full line-clamp-1 text-ellipsis   "
             >
                 <span className="flex items-center line-clamp-1 text-ellipsis text-[.65rem] font-bold px-2 ">
                     <FaRupeeSign />
@@ -697,7 +697,7 @@ function FixedDeposit({ userBalance, closePopup }) {
                     onChange={(e) => updateDuration(e.target.value)}
                 >
                     <option value={30}>30 days @1.5%</option>
-                    <option value={90}>90 days @1.5%</option>
+                    <option value={90}>90 days @2.5%</option>
                     <option value={180}>180 days @3.5%</option>
                 </select>
             </div>
