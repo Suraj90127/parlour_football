@@ -339,7 +339,7 @@ function MatchPopup({ match, onClose }) {
                 className=" h-[80%] pt-[2rem] pb-[6rem]  bg-slate-100 overflow-y-scroll rounded-t-[2rem] w-[98%]"
             >
                 <div className="flex  relative px-2  justify-center">
-                    <h4 className="border-2 border-solid border-blue-700 min-w-[20%] rounded-full"></h4>
+                    <h4 className="border-2 border-solid border-[#333333]  min-w-[20%] rounded-full"></h4>
                     <p
                         onClick={onClose}
                         className="absolute left-2 text-sm font-bold mt-[-1rem] p-2"
@@ -349,7 +349,7 @@ function MatchPopup({ match, onClose }) {
                 </div>
 
                 <div className=" px-6 mt-4 text-white">
-                    <div className="rounded-2xl relative  pt-4 bg-[url(/betplace.png)]  h-full  text-center  w-full">
+                    <div className="rounded-2xl relative  pt-4 bg-[url(/profileBg.jpg)]  h-full  text-center  w-full">
                         <h2 className="capitalize text-sm font-bold truncate text-white">
                             {match.LeagueName}
                             <p className="hidden">{match.StakeId}</p>
@@ -455,7 +455,6 @@ function ScoreCards({
         });
     }
 
-    console.log(betAmount);
 
     let router = useRouter();
 
@@ -482,7 +481,7 @@ function ScoreCards({
                     Odds percentage -<h2 className=" ml-1 text-green-400"></h2>
                     <h2 className="text-green-400"> {percent} </h2>
                 </span>
-                <span className="flex items-center justify-center py-2 px-2 bg-[#5A5A5A] text-white rounded-[7px] ">
+                <span className="flex items-center justify-center py-2 px-2 bg-pink-300 text-white rounded-[7px] ">
                     Place stake
                 </span>
             </div>
@@ -501,7 +500,7 @@ function ScoreCards({
                         <div className="flex pl-1 justify-center items-center h-[90%] space-x-1">
                             <span
                                 className=" h-full aspect-square rounded-full text-white 
-             bg-blue-700 flex text-[0.5rem] justify-center items-center"
+             bg-[#333333] flex text-[0.5rem] justify-center items-center"
                             >
                                 <FaRupeeSign />
                             </span>
@@ -513,7 +512,7 @@ function ScoreCards({
                                 {new Intl.NumberFormat().format(Balance || 0)}
                             </span>
                         </div>
-                        <span className="h-[90%] font-bolder text-white aspect-square rounded-full bg-blue-700 flex justify-center items-center">
+                        <span className="h-[90%] font-bolder text-white aspect-square rounded-full bg-[#333333] flex justify-center items-center">
                             <IoIosAdd />
                         </span>
                     </div>
@@ -530,13 +529,13 @@ function ScoreCards({
                     </span>
 
                     <div
-                        className="flex ring-2 px-1 ring-blue-600
+                        className="flex ring-2 px-1 ring-pink-300
            mt-1 py-1 rounded-md items-center"
                     >
                         <div className="flex pl-1 space-x-1 max-w-[50%] min-w-[50%]  items-center h-[90%]">
                             <span
                                 className=" h-[80%] aspect-square rounded-full text-white 
-             bg-blue-600 flex text-[0.65rem] justify-center items-center"
+             bg-[#333333] flex text-[0.65rem] justify-center items-center"
                             >
                                 <FaRupeeSign />
                             </span>
@@ -578,9 +577,9 @@ function ScoreCards({
                         }
                         disabled={disabled}
                         style={{
-                            backgroundColor: disabled ? "#5A5A5A" : "#2885F6",
+                            backgroundColor: disabled ? "#5A5A5A" : "rgb(249 168 212)",
                         }}
-                        className="py-2 px-2 w-[70%] bg-[#2885F6] font-bold text-sm text-white rounded-md capitalize"
+                        className="py-2 px-2 w-[70%] bg-pink-300 font-bold text-sm text-white rounded-md capitalize"
                     >
                         confirm
                     </button>

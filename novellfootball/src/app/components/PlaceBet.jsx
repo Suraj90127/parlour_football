@@ -131,7 +131,7 @@ const PlaceBet = ({ data, togglePopup }) => {
                     <div
                         style={{
                             background: "url(./profileBg.jpg) center",
-                            backgroundSize: "contain",
+                            backgroundSize: "cover",
                         }}
                         className="rounded-2xl relative pt-4  h-full  text-center  w-full"
                     >
