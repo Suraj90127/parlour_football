@@ -120,7 +120,7 @@ function Page() {
             if (!isValidTime) {
                 getAlert(
                     "opps",
-                    "you can withdraw from 10:00 AM to 16:00 PM UTC on working days i.e Monday to Saturday."
+                    "you can withdraw from 10:00 AM to 16:00 PM UTC on working days i.e Monday to Friday."
                 );
                 return;
             }
@@ -640,7 +640,7 @@ function Page() {
                                 <li>
                                     During the specified time frame of 10:00 to
                                     16:00, withdrawals will be processed. Please
-                                    note that the bank is closed on Sundays,
+                                    note that the bank is closed on Saturday and Sundays,
                                     hence withdrawals cannot be facilitated on
                                     that day.
                                 </li>
@@ -870,7 +870,7 @@ async function validateTime() {
     const currentHour = currentDate.getHours();
 
     // Check if it's Sunday or outside the working hours (10 am to 5 pm)
-    if (currentDay === 0 || currentHour < 10 || currentHour >= 17) {
+    if (currentDay === 0 || currentDay === 6 || currentHour < 10 || currentHour >= 16) {
         return false;
     }
 

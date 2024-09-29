@@ -170,10 +170,10 @@ export async function POST(request) {
                 {}
             );
 
-        if (BetAmount < 1000) {
+        if (BetAmount < 200) {
             throw new CustomError(
                 705,
-                "minimum bet amount is 1000 , kindly recharge or increase the bet amount."
+                "minimum bet amount is 200 , kindly recharge or increase the bet amount."
             );
         }
         BetAmount = BetAmount * 100;

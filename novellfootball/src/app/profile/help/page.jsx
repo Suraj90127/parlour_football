@@ -40,7 +40,7 @@ const Page = () => {
                             </div>
                             <div className="flex-[2] flex justify-end items-center">
                                 <Link
-                                    href={"https://t.me/+HzeCGolBpFBmNDM1"}
+                                    href={"https://t.me/+iILsv7TgvY81OTBl"}
                                     className="h-full rounded-xl bg-blue-500 text-white px-8 py-2"
                                 >
                                     join
@@ -64,7 +64,7 @@ const Page = () => {
                             <div className="flex-[2] flex justify-end items-center">
                                 <Link
                                     href={
-                                        "https://chat.whatsapp.com/D5izGU6e6COKBlInEvgs9O"
+                                        "https://chat.whatsapp.com/BKJZtWGA84K4HsTHbCLQ5p"
                                     }
                                     className="h-full rounded-xl bg-blue-500 text-white px-8 py-2"
                                 >
@@ -74,6 +74,7 @@ const Page = () => {
                         </div>
 
                         <div
+                            onClick={()=>window.location.href = 'https://t.me/ParlourFb'}
                             style={{
                                 boxShadow: "0 10px 10px rgba(0,0,0,0.04) ",
                             }}
@@ -99,7 +100,7 @@ const Page = () => {
                                     </span>
                                 </div>
                             </div>
-                            {getAgents && (
+                            {false && (
                                 <motion.div
                                     initial={{ y: -30, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}

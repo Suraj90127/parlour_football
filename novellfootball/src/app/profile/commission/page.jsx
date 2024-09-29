@@ -200,7 +200,7 @@ const Page = () => {
                     {/* hero section */}
                     <div
                         style={{
-                            background: "url(/profileBg.png) center no-repeat",
+                            background: "url(/profileBg.jpg) center no-repeat",
                             backgroundSize: "cover",
                         }}
                         className=" h-[65%] py-4 pb-7 ring-[0.2px] ring-gray-600 w-full relative 
@@ -231,7 +231,7 @@ const Page = () => {
                         </div>
                         <div
                             // onClick={() => updateShairing((prev) => !prev)}
-                            className="absolute flex justify-center items-center text-3xl text-white -bottom-6 rounded-full left-[50%] translate-x-[-50%] size-12 bg-blue-500"
+                            className="absolute flex justify-center items-center text-3xl text-white -bottom-6 rounded-full left-[50%] translate-x-[-50%] size-12 bg-[#333333]"
                         >
                             <MdOutlineShare />
                         </div>

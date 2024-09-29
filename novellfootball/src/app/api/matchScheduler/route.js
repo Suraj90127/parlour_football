@@ -33,13 +33,17 @@ const scores = [
 ];
 export async function GET(request) {
     let test = "not";
+    let isScheduled = false;
     if (request?.nextUrl?.searchParams?.get("id") === "2002") {
         test = await scheduleMatches();
-        cron.schedule("0 0 * * *", async () => {
+        isScheduled = cron.schedule("0 0 * * *", async () => {
             await scheduleMatches();
         });
+        if(isScheduled){
+            console.warn("Scheduler satrted....")
+        }
     }
-    return NextResponse.json({ status: 200, msg: "done", data: test });
+    return NextResponse.json({ status: 200, msg: "done", data: test, scheduler, isScheduled });
 }
 
 export async function scheduleMatches() {

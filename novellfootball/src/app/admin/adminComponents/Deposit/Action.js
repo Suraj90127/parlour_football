@@ -63,20 +63,22 @@ async function settleDeposit(data) {
         await connect();
         let amm_updated =
             data?.Amount <= 1000 ? Number(data?.Amount) * 100 : data?.Amount;
-        const vip_level = getVipLevel(Number(amm_updated) / 100);
+        // const vip_level = getVipLevel(Number(amm_updated) / 100);
+        const vip_level = 0;
         //  if first deposit give 2% reward to the parent;
         let isFirstDeposit = await USER.findOne({ UserName: data?.UserName });
         if (!isFirstDeposit) {
             return "error while finding the user";
         }
-        if (isFirstDeposit?.FirstDeposit === true) {
+
+        if (true) { // if first deposit is true;
             if (isFirstDeposit?.Parent !== "") {
                 let isParentUpdated = await USER.findOneAndUpdate(
                     { UserName: isFirstDeposit?.Parent },
                     {
                         $inc: {
                             Balance: amm_updated * 0.02,
-                            Members: 1,
+                            Members: isFirstDeposit?.FirstDeposit ? 1 : 0,
                         },
                     },
                     { session: Session }
@@ -86,40 +88,7 @@ async function settleDeposit(data) {
                         "somoething went wrong while updating the parent"
                     );
                 let today = new Date();
-                if (
-                    (Number(isParentUpdated?.Members) + 1) % 5 === 0 &&
-                    Number(isParentUpdated?.Members) !== 0
-                ) {
-                    await USER.findOneAndUpdate(
-                        { UserName: isFirstDeposit?.Parent },
-                        {
-                            $inc: {
-                                Balance: 30000,
-                            },
-                        },
-                        { session: Session }
-                    );
 
-                    await TRANSACTION.create(
-                        [
-                            {
-                                UserName: isParentUpdated?.UserName,
-                                TransactionId: await genTransactionID(),
-                                Amount: 30000,
-                                Type: "bonus",
-                                Remark: "multiple invitation bonus",
-                                Status: 1,
-                                Date: `${today.getDate()}/${
-                                    today.getMonth() + 1
-                                }/${today.getFullYear()}`,
-                                Parent: isParentUpdated?.Parent,
-                                From: data?.UserName,
-                                Method: "reward",
-                            },
-                        ],
-                        { session: Session }
-                    );
-                }
                 let createBonusReward = await TRANSACTION.create(
                     [
                         {
@@ -147,7 +116,7 @@ async function settleDeposit(data) {
                 { UserName: data?.UserName },
                 {
                     $inc: {
-                        Balance: amm_updated + amm_updated * 0.05,
+                        Balance: amm_updated + amm_updated * 0.02,
                         Deposited: amm_updated,
                         ValidDeposit: amm_updated,
                     },

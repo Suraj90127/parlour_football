@@ -24,7 +24,7 @@ function Page() {
   const [usdtAmount,updateUsdtAmount] = useState(null);
 
   // implementing the function which copies the address value //
-  const [text, setText] = useState("TCMRgXQvJUqj3okgvEJqdfMQNvEip8PmPc");
+  const [text, setText] = useState("TLNpPzXAMhW1rh32TddcRJDhPj5EeD2gH7");
   const [transactionId, setTransactionId] = useState("");
 
   const copyAddress = async () => {
