@@ -75,7 +75,7 @@ const PlaceBet = ({ data, togglePopup }) => {
                 body: JSON.stringify(body),
             };
             if (!(await isValidMatch(data?.StartsAt))) {
-                alert("match time out");
+                getAlert('opps', 'match time out refresh the page.')
                 return;
             }
             let res = await fetch(`/api/match`, config);
