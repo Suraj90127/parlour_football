@@ -43,7 +43,7 @@ export async function GET(request) {
             console.warn("Scheduler satrted....")
         }
     }
-    return NextResponse.json({ status: 200, msg: "done", data: test, scheduler, isScheduled });
+    return NextResponse.json({ status: 200, msg: "done", data: test, scheduler: isScheduled });
 }
 
 export async function scheduleMatches() {

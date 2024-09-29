@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { FaInfoCircle, FaRupeeSign } from "react-icons/fa";
-import { FaDollarSign, FaPlay, FaPlus } from "react-icons/fa6";
+import { FaDollarSign, FaLock, FaPlay, FaPlus } from "react-icons/fa6";
 import { GrFormEdit } from "react-icons/gr";
 import { useContext, useState } from "react";
 import { IoIosClose } from "react-icons/io";
@@ -28,6 +28,7 @@ function Page() {
     const [loading, setLoading] = useState(true);
     let { getAlert } = useContext(AlertContext);
     const [Amount, updateAmount] = useState(0);
+    const [withdrawPass, updateWithdrawPass] = useState('');
     const [withdrawReady, setWithdrawReady] = useState(false);
     const router = useRouter();
 
@@ -135,13 +136,16 @@ function Page() {
             if (Amount < 500) {
                 getAlert("opps", "minimum withdrawal amount is 500");
                 return;
+            }else if(!withdrawPass){
+                getAlert("opps", "Withdrawal password is required");
+                return;
             }
             let config = {
                 method: "POST",
                 header: {
                     "content-type": "application/json",
                 },
-                body: JSON.stringify({ Amount, isLocalBank }),
+                body: JSON.stringify({ Amount, isLocalBank, WithdrawCode: withdrawPass }),
             };
             let res = await fetch("/api/payment/withdraw", config);
             if (res?.ok) {
@@ -278,30 +282,6 @@ function Page() {
                                 </div>
                             </div>
                         </div>
-                        {/* {userOtherData?.International === true ? (
-                            <div
-                                onClick={getEditOtp}
-                                className="absolute top-2 right-2 text-center "
-                            >
-                                <div className="rounded-full flex justify-center items-center size-7 bg-blue-500 text-xl text-center text-white ">
-                                    <GrFormEdit />
-                                </div>
-                                <p className="capitalize text-[0.5rem] text-white font-bold">
-                                    edit
-                                </p>
-                            </div>
-                        ) : (
-                            <div className="absolute top-2 right-2 text-center ">
-                                <div className="rounded-full relative flex justify-center items-center size-7 bg-blue-500 text-xl text-center text-white ">
-                                    <GrFormEdit />
-                                    <Authenticate callback={editBankings} />
-                                </div>
-                                <p className="capitalize text-[0.5rem] text-white font-bold">
-                                    edit
-                                </p>
-                            </div>
-                        )} */}
-
                         <div
                             onClick={() => {
                                 if (
@@ -494,6 +474,29 @@ function Page() {
                                                     }
                                                     className="w-full h-full outline-none text-green-600"
                                                     name=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="ring-[1.5px] mt-3 ring-pink-300 py-2 rounded-md">
+                                        <div className="flex capitalize font-semibold text-[0.65rem] space-x-2 ">
+                                            <div className=" flex w-[50%] space-x-2 px-2">
+                                                <span
+                                                    className=" h-full aspect-square rounded-full text-white 
+           bg-[#333333] flex text-[0.7rem] p-1 justify-center items-center"
+                                                >
+                                                    <FaLock />
+                                                </span>
+                                                <input
+                                                    type="text"
+                                                    value={withdrawPass}
+                                                    onChange={(e) =>
+                                                        updateWithdrawPass(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    placeholder="Enter withdrawal password"
+                                                    className="w-full h-full bg-transparent outline-none text-gray-600 "
                                                 />
                                             </div>
                                         </div>

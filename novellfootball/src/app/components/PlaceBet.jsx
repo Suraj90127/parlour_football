@@ -118,7 +118,7 @@ const PlaceBet = ({ data, togglePopup }) => {
                 className=" h-[85%] py-8 pb-12  bg-slate-100 overflow-y-auto rounded-t-[2rem] w-[98%]"
             >
                 <div className="flex  relative px-2  justify-center">
-                    <h4 className="border-2 border-solid border-blue-700 min-w-[20%] rounded-full"></h4>
+                    <h4 className="border-2 border-solid border-[#333333] min-w-[20%] rounded-full"></h4>
                     <p
                         className="absolute left-2 text-sm font-bold mt-[-1rem] p-2"
                         onClick={() => togglePopup(false)}
@@ -130,8 +130,8 @@ const PlaceBet = ({ data, togglePopup }) => {
                 <div className=" px-6 mt-8 text-white">
                     <div
                         style={{
-                            background: "url(./betplace.png)",
-                            backgroundSize: "cover",
+                            background: "url(./profileBg.jpg) center",
+                            backgroundSize: "contain",
                         }}
                         className="rounded-2xl relative pt-4  h-full  text-center  w-full"
                     >
@@ -270,7 +270,7 @@ function ScoreCards({
                             : setActive(cardDetails.idx)
                     }
                     className={`h-full w-[90%] py-1 px-1 text-center text-[0.6rem] rounded-md ${
-                        cardDetails.selected ? " bg-gray-600 " : " bg-blue-600 "
+                        cardDetails.selected ? " bg-gray-600 " : " bg-pink-300 "
                     }  text-white justify-center`}
                 >
                     Place stake
@@ -291,7 +291,7 @@ function ScoreCards({
                             <div className="flex pl-1 justify-center items-center h-[90%] space-x-1">
                                 <span
                                     className=" h-full aspect-square rounded-full text-white 
-             bg-blue-700 flex text-[0.5rem] justify-center items-center"
+             bg-[#333333] flex text-[0.5rem] justify-center items-center"
                                 >
                                     <FaRupeeSign />
                                 </span>
@@ -306,7 +306,7 @@ function ScoreCards({
                                 onClick={(e) =>
                                     router.push("/profile/recharge")
                                 }
-                                className="h-[90%] font-bolder text-white aspect-square rounded-full bg-blue-700 flex justify-center items-center"
+                                className="h-[90%] font-bolder text-white aspect-square rounded-full bg-[#333333] flex justify-center items-center"
                             >
                                 <IoIosAdd />
                             </span>
@@ -322,13 +322,13 @@ function ScoreCards({
                             </h2>
                         </span>
                         <div
-                            className="flex ring-2 px-1 ring-blue-600
+                            className="flex ring-2 px-1 ring-pink-300
            mt-1 py-1 rounded-md items-center"
                         >
                             <div className="flex pl-1 space-x-1 max-w-[50%] min-w-[50%]  items-center h-[90%]">
                                 <span
                                     className=" h-[80%] aspect-square rounded-full text-white 
-             bg-blue-600 flex text-[0.65rem] justify-center items-center"
+             bg-[#333333] flex text-[0.65rem] justify-center items-center"
                                 >
                                     <FaRupeeSign />
                                 </span>
@@ -377,7 +377,7 @@ function ScoreCards({
                                 );
                                 updateLoading(false);
                             }}
-                            className="py-2 px-2 w-[70%] disabled:bg-[#5A5A5A] bg-[#2885F6] font-bold text-sm text-white rounded-md capitalize"
+                            className="py-2 px-2 w-[70%] disabled:bg-[#5A5A5A] bg-pink-300 font-bold text-sm text-white rounded-md capitalize"
                         >
                             confirm
                         </button>
