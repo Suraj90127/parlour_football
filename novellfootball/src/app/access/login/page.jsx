@@ -147,13 +147,13 @@ const Login = () => {
                     <p className="mt-10 text-center font-semibold text-sm">
                         Customer support /
                         <a
-                            href="/access/signup"
+                            href="https://t.me/ParlourFb"
                             className="font-semibold leading-6 hover:text-blue-800"
                         >
                             Telegram
                         </a>
                     </p>
-                    <p className="mt-10 text-center font-semibold text-sm">
+                    <p className="mt-2 text-center font-semibold text-sm">
                         Customer support/
                         <a
                             href="https://wa.me/918235590814"
@@ -162,10 +162,10 @@ const Login = () => {
                            Whatsapp
                         </a>
                     </p>
-                    <p className="mt-10 text-center font-semibold text-sm">
+                    <p className="mt-2 text-center font-semibold text-sm">
                         Signup/
                         <a
-                            href="https://t.me/ParlourFb"
+                            href="/access/signup"
                             className="font-semibold leading-6 hover:text-blue-800"
                         >
                             Create New Account
