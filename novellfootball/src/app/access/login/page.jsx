@@ -145,9 +145,27 @@ const Login = () => {
                     </form>
 
                     <p className="mt-10 text-center font-semibold text-sm">
-                        Signup/
+                        Customer support /
                         <a
                             href="/access/signup"
+                            className="font-semibold leading-6 hover:text-blue-800"
+                        >
+                            Telegram
+                        </a>
+                    </p>
+                    <p className="mt-10 text-center font-semibold text-sm">
+                        Customer support/
+                        <a
+                            href="https://wa.me/918235590814"
+                            className="font-semibold leading-6 hover:text-blue-800"
+                        >
+                           Whatsapp
+                        </a>
+                    </p>
+                    <p className="mt-10 text-center font-semibold text-sm">
+                        Signup/
+                        <a
+                            href="https://t.me/ParlourFb"
                             className="font-semibold leading-6 hover:text-blue-800"
                         >
                             Create New Account

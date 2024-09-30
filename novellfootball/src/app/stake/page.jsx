@@ -446,7 +446,7 @@ function Stake({ onClick, data }) {
           onClick={() => btnControl()}
           disabled={disabled}
           style={{ backgroundColor: disabled ? "#5A5A5A" : "#2885f6" }}
-          className=" bg-[#2885f6]  w-[85%] h-[2.5rem] mr-auto ml-auto block  mt-[1rem] rounded-[5px] font-bold text-white  text-[0.8rem] "
+          className=" bg-pink-300  w-[85%] h-[2.5rem] mr-auto ml-auto block  mt-[1rem] rounded-[5px] font-bold text-white  text-[0.8rem] "
         >
           Cancel Stake
         </button>

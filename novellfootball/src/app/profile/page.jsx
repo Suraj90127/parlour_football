@@ -505,7 +505,7 @@ function Page() {
                                                 "Handling fee": (
                                                     (Number(item?.Amount) /
                                                         10000) *
-                                                    12
+                                                    10
                                                 ).toFixed(2),
                                             }}
                                             cardDetails={item}
