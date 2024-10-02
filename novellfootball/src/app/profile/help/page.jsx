@@ -217,7 +217,7 @@ const Page = () => {
 
                         <a
                             href={"/downloads/Parlour-Football.pdf"}
-                            download={"norvellfootball.pdf"}
+                            download={"parlour.pdf"}
                         >
                             <div
                                 style={{
