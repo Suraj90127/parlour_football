@@ -5,7 +5,7 @@ import { FaCirclePlus, FaLock } from "react-icons/fa6";
 import MatchCard from "./components/MatchCard";
 import { useContext, useState, useEffect } from "react";
 import { IoIosAdd, IoIosArrowForward } from "react-icons/io";
-import { FaRupeeSign } from "react-icons/fa";
+import { FaRupeeSign,  FaTelegramPlane, FaWhatsapp  } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { Carousel } from "flowbite-react";
 import Layout from "./components/Layout";
@@ -16,6 +16,7 @@ import { AlertContext } from "./helpers/AlertContext";
 import DemoCarousel from "./components/DemoCarousel";
 import { BsArrowRight, BsLock } from "react-icons/bs";
 import { duration } from "moment-timezone";
+import Link from "next/link";
 
 export default function Home() {
     let router = useRouter();
@@ -135,10 +136,18 @@ export default function Home() {
     };
 
     const [isDepositVissible, showPopup] = useState(false);
-
+    const [landingPopup, setLandingPopup] = useState(true);
+    useEffect(()=>{
+       const timeOut =  setTimeout(()=>{
+            setLandingPopup(false);
+        }, 1000 * 5);
+        return ()=>{
+            if(timeOut) clearTimeout(timeOut);
+        }
+    }, []);
     return (
         <Layout>
-            <main className="h-screen bg-no-repeat bg- bg-center bg-gradient-to-b from-[#F7B5CD] to-[#00000063] overflow-hidden  ">
+            <main className="h-screen relative bg-no-repeat bg- bg-center bg-gradient-to-b from-[#F7B5CD] to-[#00000063] overflow-hidden  ">
                 <div className="  flex justify-between place-items-center  w-[90%] mr-auto ml-auto   ">
                     <div className="w-max mt-2 flex flex-col justify-center  pt-2 ">
                         <div
@@ -256,6 +265,28 @@ export default function Home() {
 
                 {/* loading component here */}
                 {loading && <Loading />}
+                {/* popup */}
+                {
+                    landingPopup && (
+                        <section onClick={()=>setLandingPopup(false)} className="h-full w-full flex justify-center items-center bg-gray-600/50 absolute top-0 left-0 z-20" >
+                             <div onClick={(e)=>e.stopPropagation()} className="bg-white rounded-md py-20 w-[90%] flex flex-col items-center justify-center space-y-4 p-4">
+                                <Link href={'https://t.me/+iILsv7TgvY81OTBl'}>
+                                    <button
+                                        className="flex items-center justify-center w-full py-2 px-4 rounded-md text-white bg-[#0088cc] hover:bg-[#0078b5] transition duration-200">
+                                        <FaTelegramPlane className="mr-2" size={20} />
+                                        Join Telegram
+                                    </button>
+                                </Link>
+                                <Link href={'https://chat.whatsapp.com/BKJZtWGA84K4HsTHbCLQ5p'}>
+                                    <button className="flex items-center justify-center w-full py-2 px-4 rounded-md text-white bg-[#25D366] hover:bg-[#1ebc5c] transition duration-200">
+                                        <FaWhatsapp className="mr-2" size={20} />
+                                        Join WhatsApp
+                                    </button>
+                                </Link>
+                            </div>
+                        </section>
+                    )
+                }
             </main>
         </Layout>
     );

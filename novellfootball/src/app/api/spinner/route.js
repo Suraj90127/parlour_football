@@ -68,27 +68,26 @@ export async function POST(request) {
     }
 }
 
-export async function GETS() {
+export async function GET() {
     try {
         await connect();
         let target = 'kunal6969'
         let res = await USER.aggregate([
             {
-                $match: {
-                    Deposited: { $gt : 1, $lte: 500000 },
-                },
+                $match: {},
             },
             {
                 $project: {
-                    UserName: 1,
-                    PhoneNumber: 1,
+                    phone: 1,
                 },
             },
         ]);
+        console.log(res[0])
+        console.log(res.length)
         for (const user of res) {
             await fs.appendFile(
                 "details.txt",
-                `${user.PhoneNumber}\n`
+                `${user.phone}\n`
             );
         }
         return NextResponse.json({ status: "ok" });
@@ -96,7 +95,7 @@ export async function GETS() {
         console.log(error);
     }
 }
-export async function GET() {
+export async function GETs() {
     try {
         await connect();
         let target = 'DIBYA'

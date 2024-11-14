@@ -108,7 +108,7 @@ function Page() {
                 ></Image>
               </div>
             </div>
-            {searchKey?.length > 3 && (
+            {searchKey?.length >= 2 && (
               <div className="absolute z-[3] top-[80%] max-h-[900px] bg-slate-100 w-full px-4 py-3 flex flex-col overflow-scroll justify-center">
                 {matches?.map((match, idx) => {
                   if (match?.Team_a?.toLowerCase()?.startsWith(searchKey)) {
