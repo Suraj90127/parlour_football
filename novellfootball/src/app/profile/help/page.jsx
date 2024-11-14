@@ -64,7 +64,7 @@ const Page = () => {
                             <div className="flex-[2] flex justify-end items-center">
                                 <Link
                                     href={
-                                        "https://chat.whatsapp.com/BKJZtWGA84K4HsTHbCLQ5p"
+                                        "https://chat.whatsapp.com/Hv0efV7RBkm8udxJ5va0fz"
                                     }
                                     className="h-full rounded-xl bg-pink-300 text-white px-8 py-2"
                                 >

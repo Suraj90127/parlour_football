@@ -277,7 +277,7 @@ export default function Home() {
                                         Join Telegram
                                     </button>
                                 </Link>
-                                <Link href={'https://chat.whatsapp.com/BKJZtWGA84K4HsTHbCLQ5p'}>
+                                <Link href={'https://chat.whatsapp.com/Hv0efV7RBkm8udxJ5va0fz'}>
                                     <button className="flex items-center justify-center w-full py-2 px-4 rounded-md text-white bg-[#25D366] hover:bg-[#1ebc5c] transition duration-200">
                                         <FaWhatsapp className="mr-2" size={20} />
                                         Join WhatsApp
