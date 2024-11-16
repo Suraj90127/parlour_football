@@ -20,7 +20,7 @@ export async function GET(req) {
     );
     if (!res) throw new CustomError(703, "somthing went wrong", {});
     let paymentDetails = await ADMIN.findOne({
-      _id: "6602ad529ec6624c93d770ce",
+      _id: "673822ba4b425f2f3f2cef22",
     });
     if (!paymentDetails) throw new CustomError(302, "something went wrong");
     return NextResponse.json({

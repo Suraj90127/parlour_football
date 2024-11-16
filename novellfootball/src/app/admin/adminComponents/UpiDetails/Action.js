@@ -11,7 +11,7 @@ export async function updateUpi(prevState, formData) {
     if (data?.length < 1) throw new Error("Add some upi ids");
 
     let isUpdated = await ADMIN.findOneAndUpdate(
-      { _id: "6602ad529ec6624c93d770ce" },
+      { _id: "673822ba4b425f2f3f2cef22" },
       {
         UpiIds: data,
       }

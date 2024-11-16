@@ -16,7 +16,7 @@ export async function editBank(prevState, formData) {
       throw new Error("every field is required");
 
     let isUpdated = await ADMIN.findOneAndUpdate(
-      { _id: "6602ad529ec6624c93d770ce" },
+      { _id: "673822ba4b425f2f3f2cef22" },
       {
         $set: {
           "BankDetails.BankName": BankName,

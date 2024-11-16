@@ -196,7 +196,7 @@ async function getAdminDetails() {
     "use server";
     try {
         await connect();
-        let data = ADMIN.findOne({ _id: "6602ad529ec6624c93d770ce" });
+        let data = ADMIN.findOne({ _id: "673822ba4b425f2f3f2cef22" });
         return data || [];
     } catch (error) {
         console.log(error);

@@ -12,7 +12,7 @@ export async function updateQr(prevState, formData) {
     let channel = formData.get("channel") || 1;
     let updateChannelFor = `QrChannel${channel}`;
     let isUpdated = await ADMIN.findOneAndUpdate(
-      { _id: "6602ad529ec6624c93d770ce" },
+      { _id: "673822ba4b425f2f3f2cef22" },
       {
         [updateChannelFor]: qrFile,
       }
