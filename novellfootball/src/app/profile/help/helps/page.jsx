@@ -121,7 +121,7 @@ function Terms({ setTerms }) {
           <p className="text-[0.6rem] my-3 ">
             1. By using, visiting and/or accessing any part (including, but not
             limited to, sub-domains, source code and/or website APIs, whether
-            visible or not) of the Norvell Football website or mobile
+            visible or not) of the Parlour Football website or mobile
             application or any other websites or applications that we own or
             operate (the “Website”) and/or registering on the Website, you
             acknowledge and agree to be bound by our policies and terms as
@@ -184,42 +184,42 @@ function Terms({ setTerms }) {
             When a change is made to the Terms and Conditions the customer will
             be informed. Your continued use of the Website constitutes ongoing
             acceptance of the Terms. Should you, due to any possible changes,
-            not wish to continue using the services of Norvell Football anymore,
+            not wish to continue using the services of Parlour Football anymore,
             you can withdraw all of your available funds and close the account.
           </p>
 
           <p className="text-[0.6rem] mb-3">
             4. Reference to "you", "your" or the "customer" is reference to any
-            person using the Website or the services of norvell-football and/or any
-            registered customer of Norvell Football.
+            person using the Website or the services of Parlour-football and/or any
+            registered customer of Parlour Football.
           </p>
 
           <p className="text-[0.6rem] mb-3">
-            5. norvell-football is committed to providing excellent customer service. As
-            part of that commitment, Norvell Football is committed to supporting
-            responsible gambling. Although Norvell Football will use its
+            5. Parlour-football is committed to providing excellent customer service. As
+            part of that commitment, Parlour Football is committed to supporting
+            responsible gambling. Although Parlour Football will use its
             reasonable endeavours to enforce its responsible gambling policies,
-            Norvell Football does not accept any responsibility or liability if
+            Parlour Football does not accept any responsibility or liability if
             you nevertheless continue gambling and/or seek to use the Website
             with the intention of deliberately avoiding the relevant measures in
-            place and/or Norvell Football is unable to enforce its
-            measures/policies for reasons outside of Norvell Football’s
+            place and/or Parlour Football is unable to enforce its
+            measures/policies for reasons outside of Parlour Football’s
             reasonable control.
           </p>
         </div>
 
-        {/* Your norvell football account */}
+        {/* Your Parlour football account */}
         <div className="text-[0.6rem] mb-3">
           <h1 className="font-bold tracking-wide text-[0.7rem] mb-3">
-            B. YOUR Norvell Football ACCOUNT
+            B. YOUR Parlour Football ACCOUNT
           </h1>
           <p className="text-[0.6rem] mb-3">1. Application</p>
           <p className="text-[0.6rem] mb-3">
             1.1 All customers must be over 18 years of age and of legal capacity
-            to place a bet/wager or register with Norvell Football. Norvell
+            to place a bet/wager or register with Parlour Football. Parlour
             Football reserves the right to ask for proof of age from any
             customer and suspend their account until satisfactory documentation
-            is provided. Norvell Football takes its responsibilities in respect
+            is provided. Parlour Football takes its responsibilities in respect
             of under age and responsible gambling very seriously.
           </p>
           <p className="text-[0.6rem] mb-3">
@@ -234,7 +234,7 @@ function Terms({ setTerms }) {
             Contact Us.
           </p>
           <p className="text-[0.6rem] mb-3">
-            1.3 Upon registration, Norvell Football will verify the contact
+            1.3 Upon registration, Parlour Football will verify the contact
             email by sending a verification email to the customer. When such
             correspondence is initiated, all offers and withdrawal requests may
             remain pending until the details has been confirmed as correct.
@@ -271,7 +271,7 @@ function Terms({ setTerms }) {
             please Contact Us.
           </p>
           <p className="text-[0.6rem] mb-3">
-            1.8 Norvell Football reserves the right to refuse to register any
+            1.8 Parlour Football reserves the right to refuse to register any
             customer account application at its sole discretion.
           </p>
           <h1 className="font-bold tracking-wide text-[0.7rem] mb-3">
@@ -317,43 +317,43 @@ function Terms({ setTerms }) {
             4.1 If you want to close your account, please Contact Us.
           </p>
           <p className="text-[0.6rem] mb-3">
-            4.2 Norvell Football shall be entitled to close or suspend your
+            4.2 Parlour Football shall be entitled to close or suspend your
             account if:
           </p>
           <p className="text-[0.6rem] mb-3">(a) you become bankrupt;</p>
           <p className="text-[0.6rem] mb-3">
-            (b) Norvell Football considers that you have used the Website in a
+            (b) Parlour Football considers that you have used the Website in a
             fraudulent manner or for illegal and/or unlawful or improper
             purposes;
           </p>
           <p className="text-[0.6rem] mb-3">
-            (c) Norvell Football considers that you have used the Website in an
+            (c) Parlour Football considers that you have used the Website in an
             unfair manner, have deliberately cheated or taken unfair advantage
-            of Norvell Football or any of its customers or if your account is
+            of Parlour Football or any of its customers or if your account is
             being used for the benefit of a third party;
           </p>
           <p className="text-[0.6rem] mb-3">
-            (d) Norvell Football is requested to do so by the police, any
+            (d) Parlour Football is requested to do so by the police, any
             regulatory authority or court;
           </p>
           <p className="text-[0.6rem] mb-3">
-            (e) Norvell Football considers that any of the events referred to in
+            (e) Parlour Football considers that any of the events referred to in
             (a) to (c) above may have occurred or are likely to occur.
           </p>
           <p className="text-[0.6rem] mb-3">
-            4.3 If Norvell Football closes or suspends your account for any of
+            4.3 If Parlour Football closes or suspends your account for any of
             the reasons referred to in (a) to (e) above, you shall be liable for
             any and all claims, losses, liabilities, damages, costs and expenses
-            incurred or suffered by Norvell Football (together “Claims”) arising
-            therefrom and shall indemnify and hold Norvell Football harmless on
+            incurred or suffered by Parlour Football (together “Claims”) arising
+            therefrom and shall indemnify and hold Parlour Football harmless on
             demand for such Claims. In the circumstances referred to in (a) to
-            (e) above, Norvell Football shall also be entitled to withhold
+            (e) above, Parlour Football shall also be entitled to withhold
             and/or retain any and all amounts which would otherwise have been
             paid or payable to you (including any winnings, Bet Credits or bonus
             payments).
           </p>
           <p className="text-[0.6rem] mb-3">
-            4.4 In addition to the specific reasons provided, Norvell Football
+            4.4 In addition to the specific reasons provided, Parlour Football
             reserves the right to close or suspend your account at any time and
             for any reason.
           </p>
@@ -362,26 +362,26 @@ function Terms({ setTerms }) {
         {/* Fair use */}
         <div className="my-3">
           <p className="text-[0.6rem] mb-3">
-            5.1 The Website and Norvell Football products may only be used for
+            5.1 The Website and Parlour Football products may only be used for
             the purposes of placing bets and wagers on events and/or gaming
             products.
           </p>
           <p className="text-[0.6rem] mb-3">
             5.2 You must not use the Website for the benefit of a third party or
-            for any purpose which (in Norvell Football’s opinion) is illegal,
-            defamatory, abusive or obscene, or which Norvell Football considers
-            discriminatory, fraudulent, dishonest or inappropriate. norvell-football may
+            for any purpose which (in Parlour Football’s opinion) is illegal,
+            defamatory, abusive or obscene, or which Parlour Football considers
+            discriminatory, fraudulent, dishonest or inappropriate. Parlour-football may
             report to the authorities any activity which it considers to be
             suspicious and/or in breach of this paragraph.
           </p>
           <p className="text-[0.6rem] mb-3">
-            5.3 Norvell Football will seek criminal and contractual sanctions
+            5.3 Parlour Football will seek criminal and contractual sanctions
             against any customer involved in fraudulent, dishonest or criminal
-            acts via or in connection with the Website or Norvell Football's
-            products. Norvell Football will withhold payment to any customer
+            acts via or in connection with the Website or Parlour Football's
+            products. Parlour Football will withhold payment to any customer
             where any of these are suspected or where the payment is suspected
             to be for the benefit of a third party. The customer shall indemnify
-            and shall be liable to pay to Norvell Football, on demand, all
+            and shall be liable to pay to Parlour Football, on demand, all
             Claims arising directly or indirectly from the customer’s
             fraudulent, dishonest or criminal act.
           </p>
@@ -395,7 +395,7 @@ function Terms({ setTerms }) {
           <p className="text-[0.6rem] mb-3">
             Its group companies may enforce any provision of these terms and
             conditions against you as a third party contract beneficiary whether
-            in the name of Norvell Football or in its own name.
+            in the name of Parlour Football or in its own name.
           </p>
         </div>
       </div>
