@@ -729,7 +729,7 @@ function FixedDeposit({ userBalance, closePopup }) {
                 >
                     <option value={30}>30 days @1.5%</option>
                     <option value={60}>60 days @2.5%</option>
-                    <option value={90}>60 days @3.5%</option>
+                    <option value={90}>90 days @3.5%</option>
                 </select>
             </div>
             <div className="pb-3 px-1 text-sm">
