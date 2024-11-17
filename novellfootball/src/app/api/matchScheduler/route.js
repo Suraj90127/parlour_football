@@ -33,19 +33,44 @@ const scores = [
 ];
 export async function GET(request) {
     let test = "not";
-    let isScheduled = false;
-    if (request?.nextUrl?.searchParams?.get("id") === "2002") {
-        test = await scheduleMatches();
-        isScheduled = cron.schedule("0 0 * * *", async () => {
-            await scheduleMatches();
-        });
-        if(isScheduled){
-            console.warn("Scheduler satrted....")
-        }
-    }
-    return NextResponse.json({ status: 200, msg: "done", data: test, scheduler: isScheduled });
-}
+    let schedulerStarted = false;
 
+    try {
+        // Call the scheduleMatches function immediately
+        // test = await scheduleMatches();
+
+        // Start the scheduler
+        const task = cron.schedule("0 0 * * *", async () => {
+            try {
+                await scheduleMatches();
+                console.info("Scheduled task executed successfully.");
+            } catch (error) {
+                console.error("Error executing scheduled task:", error);
+            }
+        });
+
+        // Indicate scheduler has started
+        schedulerStarted = task.options.scheduled;
+ 
+        if (schedulerStarted) {
+            console.info("Scheduler started successfully.");
+        }
+
+        return NextResponse.json({
+            status: 200,
+            msg: "done",
+            data: test,
+            scheduler: schedulerStarted,
+        });
+    } catch (error) {
+        console.error("Error in GET handler:", error);
+        return NextResponse.json({
+            status: 500,
+            msg: "Internal Server Error",
+            error: error.message,
+        });
+    }
+}
 export async function scheduleMatches() {
     await connect();
     let today = getDate();
