@@ -5,6 +5,7 @@
     This function has to be called manually such that cron job can be invoked
     and all set 😁
 */
+export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import moment from "moment-timezone";
@@ -37,7 +38,7 @@ export async function GET(request) {
 
     try {
         // Call the scheduleMatches function immediately
-        // test = await scheduleMatches();
+        test = await scheduleMatches();
 
         // Start the scheduler
         const task = cron.schedule("0 0 * * *", async () => {
@@ -61,6 +62,12 @@ export async function GET(request) {
             msg: "done",
             data: test,
             scheduler: schedulerStarted,
+        },{
+            headers: {
+                "Cache-Control": "no-store, no-cache, max-age=0, must-revalidate",
+            },
+            cache: 'no-store'
+
         });
     } catch (error) {
         console.error("Error in GET handler:", error);
