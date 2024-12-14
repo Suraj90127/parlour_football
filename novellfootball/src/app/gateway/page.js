@@ -1,6 +1,7 @@
 "use client"
 import md5 from "md5";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Page(){
 
@@ -58,7 +59,7 @@ export default function Page(){
       <div>
           <h1>CarryPay Test Payment</h1>
             <input value={amt} onChange={(e)=>setAmt(e.target.value)} />
-          <button onClick={() => handlePayment(amt)}>Pay {amt}</button>
+          <button className="bg-blue-300" onClick={() => handlePayment(amt)}>Pay {amt}</button>
       </div>
   );
 }
