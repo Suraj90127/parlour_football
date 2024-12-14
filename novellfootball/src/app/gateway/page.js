@@ -23,7 +23,7 @@ export default function Page(){
         "merchantNo": merchantId,
         "orderNo": orderId,
         "orderAmt": `${amount}`,
-        "productCode": "20001",
+        "productCode": "80003",
         "notifyUrl": "https://parlourfootball.online/api/callback",
         "accCode": "INR_BANK_A",
         "otherPara2": "WALLET",
