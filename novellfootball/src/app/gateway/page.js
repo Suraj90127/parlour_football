@@ -21,7 +21,7 @@ export default function Page(){
       const requestBody = {
         "merchantNo": merchantId,
         "orderNo": orderId,
-        "orderAmt": "100",
+        "orderAmt": `${amount}`,
         "productCode": "20001",
         "notifyUrl": "https://parlourfootball.online/api/callback",
         "accCode": "INR_BANK_A",
@@ -53,11 +53,12 @@ export default function Page(){
           alert("Error occurred while making payment.");
       }
   };
-
+  const [amt, setAmt] = useState(100);  
   return (
       <div>
           <h1>CarryPay Test Payment</h1>
-          <button onClick={() => handlePayment(100)}>Pay 100</button>
+            <input value={amt} onChange={(e)=>setAmt(e.target.value)} />
+          <button onClick={() => handlePayment(amt)}>Pay {amt}</button>
       </div>
   );
 }
