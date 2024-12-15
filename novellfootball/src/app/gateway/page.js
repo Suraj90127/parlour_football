@@ -8,15 +8,12 @@ export default function Page(){
   const router = useRouter();
 
   const handlePayment = async (amount) => {
-      const merchantKey = "6c567b06cd558af505bbee0271612be0"; // Replace with your test key
-      const merchantId = "mer714043"; // Replace with your test merchant ID
-      const notifyUrl = "https://parlourfootball.online/api/callback"; // Replace with your callback URL
-      const orderId = `${Date.now()}`; // Generate a unique test order ID
-      const signType = "MD5";
-      const version = "1.0";
+      const merchantKey = "6c567b06cd558af505bbee0271612be0";
+      const merchantId = "mer714043"; 
+      const orderId = `${Date.now()}`;
 
       // Data to be signed
-      const signStr = `firstName=john&lastName=tom&merchantNo=${merchantId}&orderAmt=100&orderNo=${orderId}&productCode=20001`;
+      const signStr = `firstName=john&lastName=tom&merchantNo=${merchantId}&orderAmt=100&orderNo=${orderId}&productCode=80003`;
       const sign = md5(`${signStr}&key=${merchantKey}`);
 
       const requestBody = {
