@@ -8,7 +8,7 @@ export default function Page(){
   const [productCode, setproductCode] = useState(80003);  
 
   const handlePayment = async (amount) => {
-    let res = await axios.post("/api/gateway", {amount})
+    let res = await axios.post("/api/gateway", {amount, productCode})
     console.log(res);
   }
 
