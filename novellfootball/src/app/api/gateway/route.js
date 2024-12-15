@@ -43,12 +43,11 @@ function sign(paramMap, signKey) {
 
 export async function POST (request,res){
 
-    const {amount} = await request.json();
+    const {amount, productCode} = await request.json();
     
     const merchantKey = "6c567b06cd558af505bbee0271612be0";
         const merchantId = "mer714043"; 
         const orderId = `${Date.now()}`;
-        const productCode = '90001'
        
         let requestBody = {
           "merchantNo": merchantId,
@@ -98,6 +97,7 @@ export async function POST (request,res){
 // productCode:[product code, remarks: product code]
 // notifyUrl:[callback address, note: callback address]
 // sign:[signature, remarks: signature]
+
 // accPhone:[Payee’s phone number, Note: The payee’s phone number is in landline format]
 // transferMode: [Transfer mode, note: transfer modes include Pix, Banktransfer and UPI]
 // ext1: [Special parameter 1, remarks: when transferMode=Pix, ext1=user CPF. When transferMode=Banktransfer, ext1=ifsc]
