@@ -12,7 +12,7 @@ export async function POST (request,res){
         const orderId = `${Date.now()}`;
   
         // Data to be signed
-        const signStr = `firstName=john&lastName=tom&merchantNo=${merchantId}&orderAmt=${orderAmt}&orderNo=${orderId}&productCode=80003`;
+        const signStr = `firstName=john&lastName=tom&merchantNo=${merchantId}&orderAmt=${amount}&orderNo=${orderId}&productCode=80003`;
         const sign = md5(`${signStr}&key=${merchantKey}`);
   
         const requestBody = {
