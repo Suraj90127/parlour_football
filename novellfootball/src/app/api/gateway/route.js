@@ -65,8 +65,8 @@ export async function POST(request, res) {
     );
     console.warn(response.data);
     const result = response.data;
-
-    return NextResponse.json({ result });
+    console.log("requestBody", requestBody);
+    return NextResponse.json({ data: requestBody, result });
     // if (result.isValid && result.url) {
     //     // Redirect to the payment URL
     // } else {
@@ -74,7 +74,7 @@ export async function POST(request, res) {
     //     alert("Payment initiation failed. Check console for details.");
     // }
   } catch (error) {
-    return NextResponse.json({ err: error.message });
+    return NextResponse.json({ datas: requestBody, err: error.message });
     console.error("Error making payment request:", error);
     alert("Error occurred while making payment.");
   }
