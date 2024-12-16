@@ -8,36 +8,63 @@ import { NextResponse } from "next/server";
  * @param {string} signKey - The key used for signing.
  * @returns {string} - The MD5 signature.
  */
-function sign(paramMap, signKey) {
-  try {
-    // Sort the keys of the paramMap
-    const sortedKeys = Object.keys(paramMap).sort();
+// function sign(paramMap, signKey) {
+//   try {
+//     // Sort the keys of the paramMap
+//     const sortedKeys = Object.keys(paramMap).sort();
 
-    // Build the string to sign
-    let sb = "";
-    for (const key of sortedKeys) {
-      if (key === "sign") continue; // Skip the "sign" key
-      const value = paramMap[key];
-      if (value === null || value === "") continue; // Skip null or empty values
-      sb += `${key}=${value}&`;
-    }
+//     // Build the string to sign
+//     let sb = "";
+//     for (const key of sortedKeys) {
+//       if (key === "sign") continue; // Skip the "sign" key
+//       const value = paramMap[key];
+//       if (value === null || value === "") continue; // Skip null or empty values
+//       sb += `${key}=${value}&`;
+//     }
 
-    // Remove the trailing "&" if it exists
-    if (sb.endsWith("&")) {
-      sb = sb.slice(0, -1);
-    }
+//     // Remove the trailing "&" if it exists
+//     if (sb.endsWith("&")) {
+//       sb = sb.slice(0, -1);
+//     }
 
-    // Append the signKey
-    sb += signKey;
+//     // Append the signKey
+//     sb += signKey;
 
-    // Generate the MD5 hash
-    const verStr = md5(sb);
+//     // Generate the MD5 hash
+//     const verStr = md5(sb);
 
-    return verStr;
-  } catch (error) {
-    console.error("Error generating signature:", error);
-    return "";
+//     return verStr;
+//   } catch (error) {
+//     console.error("Error generating signature:", error);
+//     return "";
+//   }
+// }
+
+function sortDatass(data) {
+  const sortedKeys = Object.keys(data)
+    .filter((key) => data[key] !== "") // Exclude empty values
+    .sort(); // Sort keys alphabetically
+
+  return sortedKeys
+    .map((key) => `${key}=${data[key]}`) // Key-value pairs
+    .join("&"); // Join pairs with '&'
+}
+
+// Generate HmacSHA256 signature
+
+function generateSignature(dataString, secret) {
+  // Validate the secret
+
+  if (!secret) {
+    throw new Error(
+      "Secret key is undefined. Please check the input or environment variables."
+    );
   }
+
+  return crypto
+    .createHmac("sha256", secret) // Ensure secret is defined
+    .update(dataString)
+    .digest("hex");
 }
 
 export async function POST(request, res) {
@@ -55,13 +82,21 @@ export async function POST(request, res) {
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
 
-  const sn = sign(requestBody, merchantKey);
-  requestBody.sign = sn;
+  const stringToSign = sortDatass(requestBody);
+  requestBody.sign = generateSignature(stringToSign, merchantKey);
+
+  // const sn = sign(requestBody, merchantKey);
+  // requestBody.sign = sn;
   // const test = md5('df552f3bc735b683e3f41ed2edb66187');
   try {
     const response = await axios.post(
       "https://api.carry-pay.com/api/agentPay/payOrder",
-      requestBody
+      requestBody,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
     console.warn(response.data);
     const result = response.data;
