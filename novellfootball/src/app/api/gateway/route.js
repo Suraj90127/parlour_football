@@ -78,7 +78,7 @@ export async function POST(request, res) {
     merchantNo: merchantId,
     orderNo: orderId,
     orderAmt: `${amount}`,
-    productCode: `${productCode}`,
+    productCode: "90001",
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
 
