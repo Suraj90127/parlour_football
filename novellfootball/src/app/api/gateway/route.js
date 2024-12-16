@@ -73,12 +73,14 @@ export async function POST(request, res) {
     merchantNo: merchantId,
     orderNo: orderId,
     orderAmt: `${amount}`,
-    productCode: "80003",
-    payPhone: "1234567890",
+    productCode: "80003", // Ensure this is the correct product code
+    payPhone: "1234567890", // Make sure this is the correct phone number format
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
 
-  const stringToSign = sortDatass(requestBody);
+  const stringToSign = sortDatass(requestBody); // Sort the parameters
+  console.log("String to sign:", stringToSign); // Debug: Check the string to be signed
+
   requestBody.sign = generateSignature(stringToSign, merchantKey);
 
   try {
@@ -92,20 +94,17 @@ export async function POST(request, res) {
       }
     );
 
-    console.log("payload", requestBody);
-    console.log("response", response);
+    console.log("Payload:", requestBody);
+    console.log("Response:", response.data);
 
     return NextResponse.json({ response: response.data });
   } catch (error) {
-    // Handle Axios error response
+    // Handle error
     console.error("Error making payment request:", error);
-
-    // Check if error has a response object and return that, else return the error message
     const errorResponse = error.response
       ? error.response.data
       : { message: error.message };
 
-    // Return the relevant error information
     return NextResponse.json({
       err: errorResponse,
     });
