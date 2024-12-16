@@ -98,6 +98,8 @@ export async function POST(request, res) {
         },
       }
     );
+    console.log("payload", requestBody);
+    console.log("reasponce", response);
     console.warn(response.data);
     const result = response.data;
 
