@@ -41,26 +41,32 @@ import crypto from "crypto";
 //   }
 // }
 
-function sortDatass(data) {
-  const sortedKeys = Object.keys(data)
-    .filter((key) => data[key] !== "") // Exclude empty values
-    .sort(); // Sort keys alphabetically
+const sortData = (params, merchantKey) => {
+  const sortedKeys = Object.keys(params)
+    .filter(
+      (key) =>
+        params[key] !== null &&
+        params[key] !== undefined &&
+        params[key] !== "" &&
+        key !== "sign" &&
+        key !== "sign_type"
+    )
+    .sort();
 
-  return sortedKeys
-    .map((key) => `${key}=${data[key]}`) // Key-value pairs
-    .join("&"); // Join pairs with '&'
-}
+  const queryString = sortedKeys
+    .map((key) => `${key}=${params[key]}`)
+    .join("&");
 
-// Generate HmacSHA256 signature
-function generateSignature(dataString, secret) {
-  if (!secret) {
-    throw new Error(
-      "Secret key is undefined. Please check the input or environment variables."
-    );
-  }
+  return `${queryString}&key=${merchantKey}`;
+};
 
-  return crypto.createHmac("sha256", secret).update(dataString).digest("hex");
-}
+const sign = (signSource) => {
+  return crypto
+    .createHash("md5")
+    .update(signSource)
+    .digest("hex")
+    .toLowerCase();
+};
 
 export async function POST(request, res) {
   const { amount, productCode } = await request.json();
@@ -78,10 +84,8 @@ export async function POST(request, res) {
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
 
-  const stringToSign = sortDatass(requestBody); // Sort the parameters
-  console.log("String to sign:", stringToSign); // Debug: Check the string to be signed
-
-  requestBody.sign = generateSignature(stringToSign, merchantKey);
+  const stringToSign = sortData(requestBody, merchantKey);
+  requestBody.sign = sign(stringToSign);
 
   try {
     const response = await axios.post(
