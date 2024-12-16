@@ -41,37 +41,38 @@ import crypto from "crypto";
 //   }
 // }
 
-const sortData = (params, merchantKey) => {
-  const sortedKeys = Object.keys(params)
-    .filter(
-      (key) =>
-        params[key] !== null &&
-        params[key] !== undefined &&
-        params[key] !== "" &&
-        key !== "sign" &&
-        key !== "sign_type"
-    )
-    .sort();
+function sign(paramMap, signKey) {
+  try {
+    // Sort the keys alphabetically
+    const sortedKeys = Object.keys(paramMap).sort();
 
-  const queryString = sortedKeys
-    .map((key) => `${key}=${params[key]}`)
-    .join("&");
+    // Build the string to sign
+    let sb = "";
+    sortedKeys.forEach((key) => {
+      const value = paramMap[key];
+      // Skip 'sign' key or empty values
+      if (key === "sign" || value === null || value === "") {
+        return;
+      }
+      sb += `${key}=${value}&`;
+    });
 
-  return `${queryString}&key=${merchantKey}`;
-};
+    // Remove the trailing '&' and append the signKey
+    sb = sb.slice(0, -1) + signKey;
 
-const sign = (signSource) => {
-  return crypto
-    .createHash("md5")
-    .update(signSource)
-    .digest("hex")
-    .toLowerCase();
-};
+    // Generate MD5 hash
+    return crypto.createHash("md5").update(sb).digest("hex");
+  } catch (e) {
+    console.error(e.message);
+    return "";
+  }
+}
 
 export async function POST(request, res) {
   const { amount, productCode } = await request.json();
 
   const merchantKey = "6c567b06cd558af505bbee0271612be0";
+
   const merchantId = "mer714043";
   const orderId = `${Date.now()}`;
 
@@ -80,12 +81,18 @@ export async function POST(request, res) {
     orderNo: orderId,
     orderAmt: `${amount}`,
     productCode: "80003", // Ensure this is the correct product code
+    firstName: "john",
+    lastName: "tom",
+    payEmail: "john.tom@gmail.com",
+
     payPhone: "1234567890", // Make sure this is the correct phone number format
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
 
-  const stringToSign = sortData(requestBody, merchantKey);
-  requestBody.sign = sign(stringToSign);
+  //   const sign = sign(map, key);
+  // map["sign"] = sign;
+
+  requestBody.sign = sign(requestBody, merchantKey);
 
   try {
     const response = await axios.post(
