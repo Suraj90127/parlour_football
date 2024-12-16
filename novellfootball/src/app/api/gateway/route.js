@@ -52,20 +52,14 @@ function sortDatass(data) {
 }
 
 // Generate HmacSHA256 signature
-
 function generateSignature(dataString, secret) {
-  // Validate the secret
-
   if (!secret) {
     throw new Error(
       "Secret key is undefined. Please check the input or environment variables."
     );
   }
 
-  return crypto
-    .createHmac("sha256", secret) // Ensure secret is defined
-    .update(dataString)
-    .digest("hex");
+  return crypto.createHmac("sha256", secret).update(dataString).digest("hex");
 }
 
 export async function POST(request, res) {
@@ -87,9 +81,6 @@ export async function POST(request, res) {
   const stringToSign = sortDatass(requestBody);
   requestBody.sign = generateSignature(stringToSign, merchantKey);
 
-  // const sn = sign(requestBody, merchantKey);
-  // requestBody.sign = sn;
-  // const test = md5('df552f3bc735b683e3f41ed2edb66187');
   try {
     const response = await axios.post(
       "https://api.carry-pay.com/api/agentPay/payOrder",
@@ -102,22 +93,22 @@ export async function POST(request, res) {
     );
 
     console.log("payload", requestBody);
-    console.log("reasponce", response);
+    console.log("response", response);
 
-    console.warn(response.data);
-    const result = response.data;
-
-    return NextResponse.json({ response });
-    // if (result.isValid && result.url) {
-    //     // Redirect to the payment URL
-    // } else {
-    //     console.error("Payment initiation failed:", result.message);
-    //     alert("Payment initiation failed. Check console for details.");
-    // }
+    return NextResponse.json({ response: response.data });
   } catch (error) {
+    // Handle Axios error response
     console.error("Error making payment request:", error);
-    return NextResponse.json({ err: error.message });
-    alert("Error occurred while making payment.");
+
+    // Check if error has a response object and return that, else return the error message
+    const errorResponse = error.response
+      ? error.response.data
+      : { message: error.message };
+
+    // Return the relevant error information
+    return NextResponse.json({
+      err: errorResponse,
+    });
   }
 }
 
