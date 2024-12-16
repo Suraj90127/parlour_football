@@ -1,6 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
 import { NextResponse } from "next/server";
+import crypto from "crypto";
 
 /**
  * Generates a signature from the given parameters and sign key.
