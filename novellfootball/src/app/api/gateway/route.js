@@ -113,8 +113,8 @@ export async function POST(request, res) {
     //     alert("Payment initiation failed. Check console for details.");
     // }
   } catch (error) {
-    return NextResponse.json({ err: "rsuryaaaaaa" });
     console.error("Error making payment request:", error);
+    return NextResponse.json({ err: error.message });
     alert("Error occurred while making payment.");
   }
 }
