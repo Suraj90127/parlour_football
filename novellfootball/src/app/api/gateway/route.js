@@ -199,13 +199,26 @@ export async function POST(request, res) {
   const merchantId = "mer714043";
   const orderId = `${Date.now()}`;
 
+  // let requestBody = {
+  //   merchantNo: merchantId,
+  //   orderNo: orderId,
+  //   orderAmt: `${amount}`,
+  //   productCode: "80003", // Ensure this is the correct product code
+  //   payPhone: "9876543210", // Make sure this is the correct phone number format
+  //   notifyUrl: "https://parlourfootball.online/api/callback",
+  // };
   let requestBody = {
-    merchantNo: merchantId,
+    bankCode: "BARD0LODH",
     orderNo: orderId,
-    orderAmt: `${amount}`,
-    productCode: "80003", // Ensure this is the correct product code
-    payPhone: "1234567890", // Make sure this is the correct phone number format
+    productCode: "80003",
+    payPhone: "9876543210",
+    accNo: "85780100020771",
     notifyUrl: "https://parlourfootball.online/api/callback",
+    orderAmt: `${amount}`,
+    firstName: "rjsurys",
+    lastName: "bhai",
+    payEmail: "rjsurya@gmail.com",
+    merchantNo: merchantId,
   };
 
   const sn = sign(requestBody, merchantKey);
