@@ -204,9 +204,6 @@ export async function POST(request, res) {
     orderNo: orderId,
     orderAmt: `${amount}`,
     productCode: "80003", // Ensure this is the correct product code
-    firstName: "john",
-    lastName: "tom",
-    payEmail: "john.tom@gmail.com",
     payPhone: "1234567890", // Make sure this is the correct phone number format
     notifyUrl: "https://parlourfootball.online/api/callback",
   };
